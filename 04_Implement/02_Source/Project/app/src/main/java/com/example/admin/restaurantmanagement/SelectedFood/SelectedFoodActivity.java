@@ -19,17 +19,16 @@ public class SelectedFoodActivity extends AppCompatActivity {
     Button btnAddFood, btnPay;
     RecyclerView recyclerView;
     TextView txtSelectedSumPrice;
-    String cost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.selected_food_activity);
         inItView();
 
-        SelectedFoodAdapter selectedFoodAdapter = new SelectedFoodAdapter(cost);
+        SelectedFoodAdapter selectedFoodAdapter = new SelectedFoodAdapter();
         recyclerView.setAdapter(selectedFoodAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        txtSelectedSumPrice.setText("Thành tiền: " + cost);
+        txtSelectedSumPrice.setText("Thành tiền: " + selectedFoodAdapter.total());
         btnPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +36,8 @@ public class SelectedFoodActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void payFood() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(SelectedFoodActivity.this,  R.style.Theme_AppCompat_DayNight_Dialog);

@@ -23,7 +23,7 @@ public class SelectedFoodAdapter extends RecyclerView.Adapter {
     String sum;
 
 
-    public SelectedFoodAdapter(String temp) {
+    public SelectedFoodAdapter() {
         int tmp = 0;
         for (int i = 0; i < prices.length; i++) {
 
@@ -38,9 +38,20 @@ public class SelectedFoodAdapter extends RecyclerView.Adapter {
             selectedFoodInfoList.add(selectedFoodInfo);
 
         }
-        temp = String.valueOf(tmp);
-        this.sum = temp;
+        this.sum = String.valueOf(tmp);
     }
+
+    public int total() {
+        int tmp = 0;
+        for (int i = 0; i < prices.length; i++) {
+            int count = Integer.parseInt(counts[i]);
+            int price = Integer.parseInt(prices[i].substring(0, prices.length - 2));
+            int cost = count * price;
+            tmp+=cost;
+        }
+        return tmp;
+    }
+
 
 
     TextView txtSelectedPrice;
@@ -56,19 +67,14 @@ public class SelectedFoodAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        View view = viewHolder.itemView;
-        ImageView imgFood = (ImageView) view.findViewById(R.id.imgSelectedFood);
-        TextView txtFoodName = (TextView) view.findViewById(R.id.txtSelectedFood);
-        TextView txtSumEachFood = (TextView) view.findViewById(R.id.txtSumEachFood);
-        TextView txtCount = (TextView) view.findViewById(R.id.txtFoodCount);
-        TextView txtPrice = (TextView) view.findViewById(R.id.txtSelectedPrice);
+        MySelectedFoodViewHolder holder = (MySelectedFoodViewHolder) viewHolder;
 
         SelectedFoodInfo selectedFoodInfo = selectedFoodInfoList.get(i);
-        imgFood.setImageResource(selectedFoodInfo.getImgFood());
-        txtFoodName.setText(selectedFoodInfo.getFoodName());
-        txtCount.setText("Số lượng: " + selectedFoodInfo.getCount());
-        txtPrice.setText(selectedFoodInfo.getPrice());
-        txtSumEachFood.setText(selectedFoodInfo.getSum()+"d");
+        holder.imgFood.setImageResource(selectedFoodInfo.getImgFood());
+        holder.txtFoodName.setText(selectedFoodInfo.getFoodName());
+        holder.txtCount.setText("Số lượng: " + selectedFoodInfo.getCount());
+        holder.txtPrice.setText(selectedFoodInfo.getPrice());
+        holder.txtSumEachFood.setText(selectedFoodInfo.getSum()+"d");
     }
 
     @Override
@@ -77,8 +83,17 @@ public class SelectedFoodAdapter extends RecyclerView.Adapter {
     }
 
     private class MySelectedFoodViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgFood;
+        TextView txtFoodName, txtSumEachFood, txtCount, txtPrice;
+
         public MySelectedFoodViewHolder(View view) {
             super(view);
+            imgFood = view.findViewById(R.id.imgSelectedFood);
+            txtFoodName = view.findViewById(R.id.txtSelectedFood);
+            txtSumEachFood = view.findViewById(R.id.txtSumEachFood);
+            txtCount = view.findViewById(R.id.txtFoodCount);
+            txtPrice = view.findViewById(R.id.txtSelectedPrice);
+
         }
     }
 }
