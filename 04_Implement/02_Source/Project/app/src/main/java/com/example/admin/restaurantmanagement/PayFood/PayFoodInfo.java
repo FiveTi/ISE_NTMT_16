@@ -1,10 +1,10 @@
-package com.example.admin.restaurantmanagement.SelectedFood;
+package com.example.admin.restaurantmanagement.PayFood;
 
-public class SelectedFoodInfo {
+public class PayFoodInfo {
     String foodName, price, count, sum;
     Integer imgFood;
 
-    public SelectedFoodInfo(String foodName, String price, String count, Integer imgFood) {
+    public PayFoodInfo(String foodName, String price, String count, Integer imgFood) {
         this.foodName = foodName;
         this.price = price;
         this.count = count;

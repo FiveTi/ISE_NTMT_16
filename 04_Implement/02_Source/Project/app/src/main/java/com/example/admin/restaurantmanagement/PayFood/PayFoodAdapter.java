@@ -1,4 +1,4 @@
-package com.example.admin.restaurantmanagement.SelectedFood;
+package com.example.admin.restaurantmanagement.PayFood;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -13,8 +13,8 @@ import com.example.admin.restaurantmanagement.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectedFoodAdapter extends RecyclerView.Adapter {
-    List<SelectedFoodInfo> selectedFoodInfoList = new ArrayList<>();
+public class PayFoodAdapter extends RecyclerView.Adapter {
+    List<PayFoodInfo> payFoodInfoList = new ArrayList<>();
     String counts[] = {"1", "2", "4", "5", "1", "2", "4", "6"};
     String prices[] = {"120000d", "130000d", "110000d", "123300d", "190000d", "220000d", "320000d", "420000d"};
     String foodNames[] = {"Com", "Bo", "Pho", "Heo", "Gà", "Vịt", "De", "Cừu"};
@@ -23,19 +23,19 @@ public class SelectedFoodAdapter extends RecyclerView.Adapter {
     String sum;
 
 
-    public SelectedFoodAdapter() {
+    public PayFoodAdapter() {
         int tmp = 0;
         for (int i = 0; i < prices.length; i++) {
 
-            SelectedFoodInfo selectedFoodInfo = new SelectedFoodInfo(foodNames[i], prices[i], counts[i], foodImage[i]);
+            PayFoodInfo payFoodInfo = new PayFoodInfo(foodNames[i], prices[i], counts[i], foodImage[i]);
 
             int count = Integer.parseInt(counts[i]);
             int price = Integer.parseInt(prices[i].substring(0, prices.length - 2));
             int cost = count * price;
             tmp+=cost;
             sum = String.valueOf(cost);
-            selectedFoodInfo.setSum(sum);
-            selectedFoodInfoList.add(selectedFoodInfo);
+            payFoodInfo.setSum(sum);
+            payFoodInfoList.add(payFoodInfo);
 
         }
         this.sum = String.valueOf(tmp);
@@ -52,47 +52,42 @@ public class SelectedFoodAdapter extends RecyclerView.Adapter {
         return tmp;
     }
 
-
-
-    TextView txtSelectedPrice;
-
-
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
-        View view = layoutInflater.inflate(R.layout.tab_selected_food, viewGroup, false);
-        return new MySelectedFoodViewHolder(view);
+        View view = layoutInflater.inflate(R.layout.tab_pay_food, viewGroup, false);
+        return new MyPayFoodViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        MySelectedFoodViewHolder holder = (MySelectedFoodViewHolder) viewHolder;
+        MyPayFoodViewHolder holder = (MyPayFoodViewHolder) viewHolder;
 
-        SelectedFoodInfo selectedFoodInfo = selectedFoodInfoList.get(i);
-        holder.imgFood.setImageResource(selectedFoodInfo.getImgFood());
-        holder.txtFoodName.setText(selectedFoodInfo.getFoodName());
-        holder.txtCount.setText("Số lượng: " + selectedFoodInfo.getCount());
-        holder.txtPrice.setText(selectedFoodInfo.getPrice());
-        holder.txtSumEachFood.setText(selectedFoodInfo.getSum()+"d");
+        PayFoodInfo payFoodInfo = payFoodInfoList.get(i);
+        holder.imgFood.setImageResource(payFoodInfo.getImgFood());
+        holder.txtFoodName.setText(payFoodInfo.getFoodName());
+        holder.txtCount.setText("Số lượng: " + payFoodInfo.getCount());
+        holder.txtPrice.setText(payFoodInfo.getPrice());
+        holder.txtSumEachFood.setText(payFoodInfo.getSum()+"d");
     }
 
     @Override
     public int getItemCount() {
-        return selectedFoodInfoList.size();
+        return payFoodInfoList.size();
     }
 
-    private class MySelectedFoodViewHolder extends RecyclerView.ViewHolder {
+    private class MyPayFoodViewHolder extends RecyclerView.ViewHolder {
         ImageView imgFood;
         TextView txtFoodName, txtSumEachFood, txtCount, txtPrice;
 
-        public MySelectedFoodViewHolder(View view) {
+        public MyPayFoodViewHolder(View view) {
             super(view);
-            imgFood = view.findViewById(R.id.imgSelectedFood);
-            txtFoodName = view.findViewById(R.id.txtSelectedFood);
+            imgFood = view.findViewById(R.id.imgPayFood);
+            txtFoodName = view.findViewById(R.id.txtPayFood);
             txtSumEachFood = view.findViewById(R.id.txtSumEachFood);
-            txtCount = view.findViewById(R.id.txtFoodCount);
-            txtPrice = view.findViewById(R.id.txtSelectedPrice);
+            txtCount = view.findViewById(R.id.txtFoodNumber);
+            txtPrice = view.findViewById(R.id.txtPayPrice);
 
         }
     }

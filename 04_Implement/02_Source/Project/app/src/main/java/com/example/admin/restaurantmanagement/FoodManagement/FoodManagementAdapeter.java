@@ -44,7 +44,7 @@ public class FoodManagementAdapeter extends RecyclerView.Adapter {
         ImageView imgFood = (ImageView) view.findViewById(R.id.imgFoodManage);
         TextView txtFoodName = (TextView) view.findViewById(R.id.txtTableNameManage);
         TextView txtTypeFood = (TextView) view.findViewById(R.id.txtTypeFoodManage);
-        TextView txtPrice = (TextView) view.findViewById(R.id.txtSelectedPrice);
+        TextView txtPrice = (TextView) view.findViewById(R.id.txtPayPrice);
 
         FoodManagementInfo foodManagementInfo = foodManagementInfoList.get(i);
         imgFood.setImageResource(foodManagementInfo.getImgFood());

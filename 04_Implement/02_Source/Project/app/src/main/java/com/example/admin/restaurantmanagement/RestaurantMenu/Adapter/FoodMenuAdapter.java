@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.admin.restaurantmanagement.R;
 import com.example.admin.restaurantmanagement.RestaurantMenu.MenuInfo;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,16 +41,30 @@ public class FoodMenuAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        View view = viewHolder.itemView;
-        ImageView imgMenuFood = (ImageView) view.findViewById(R.id.imgMemuFood);
-        TextView txtMenuNameFood = (TextView) view.findViewById(R.id.txtMenuNameFood);
-        TextView txtMemuPrice = (TextView) view.findViewById(R.id.txtMenuPriceFood);
+        final MyFoodMenuViewHolder myFoodMenuViewHolder = (MyFoodMenuViewHolder) viewHolder;
 
         MenuInfo menuInfo = menuInfoList.get(i);
-        imgMenuFood.setImageResource(menuInfo.getImgFood());
-        txtMenuNameFood.setText(menuInfo.getFoodName());
-        txtMemuPrice.setText(menuInfo.getPrice());
+        myFoodMenuViewHolder.imgMenuFood.setImageResource(menuInfo.getImgFood());
+        myFoodMenuViewHolder.txtMenuNameFood.setText(menuInfo.getFoodName());
+        myFoodMenuViewHolder.txtMemuPrice.setText(menuInfo.getPrice());
+        myFoodMenuViewHolder.imgMinusFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int temp = Integer.parseInt(myFoodMenuViewHolder.txtFoodNumber.getText().toString());
+                if (temp==0) return;
+                else myFoodMenuViewHolder.txtFoodNumber.setText(String.valueOf(temp - 1));
+            }
+        });
+
+        myFoodMenuViewHolder.imgAddFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int temp = Integer.parseInt(myFoodMenuViewHolder.txtFoodNumber.getText().toString());
+                myFoodMenuViewHolder.txtFoodNumber.setText(String.valueOf(temp + 1));
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {
@@ -57,8 +72,18 @@ public class FoodMenuAdapter extends RecyclerView.Adapter {
     }
 
     private class MyFoodMenuViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgMenuFood, imgMinusFood, imgAddFood;
+        TextView txtMenuNameFood, txtMemuPrice, txtFoodNumber;
+
         public MyFoodMenuViewHolder(View view) {
             super(view);
+
+            imgMenuFood = view.findViewById(R.id.imgMemuFood);
+            txtMenuNameFood = view.findViewById(R.id.txtMenuNameFood);
+            txtMemuPrice = view.findViewById(R.id.txtMenuPriceFood);
+            imgMinusFood = view.findViewById(R.id.imgMinusFood);
+            imgAddFood = view.findViewById(R.id.imgAddFood);
+            txtFoodNumber = view.findViewById(R.id.txtFoodNumber);
         }
     }
 }

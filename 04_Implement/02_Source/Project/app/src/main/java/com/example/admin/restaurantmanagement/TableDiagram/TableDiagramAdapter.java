@@ -1,6 +1,5 @@
 package com.example.admin.restaurantmanagement.TableDiagram;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.admin.restaurantmanagement.R;
 import com.example.admin.restaurantmanagement.RestaurantMenu.RestaurantMenuActivity;
-import com.example.admin.restaurantmanagement.SelectedFood.SelectedFoodActivity;
+import com.example.admin.restaurantmanagement.PayFood.PayFoodActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +73,7 @@ public class TableDiagramAdapter extends BaseAdapter {
                                     context.startActivity(intentSelectedFood);
                                     break;
                                 case R.id.menuTablePay:
-                                    Intent intentPay =  new Intent(context, SelectedFoodActivity.class);
+                                    Intent intentPay =  new Intent(context, PayFoodActivity.class);
                                     context.startActivity(intentPay);
                                     break;
                                 case R.id.menuTableCancel:

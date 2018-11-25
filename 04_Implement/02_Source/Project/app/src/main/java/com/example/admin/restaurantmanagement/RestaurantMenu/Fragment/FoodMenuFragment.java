@@ -23,7 +23,7 @@ public class FoodMenuFragment extends Fragment {
         revFoodMenu = (RecyclerView) view.findViewById(R.id.revMenuFood);
         FoodMenuAdapter foodMenuAdapter = new FoodMenuAdapter();
         revFoodMenu.setAdapter(foodMenuAdapter);
-        revFoodMenu.setLayoutManager(new GridLayoutManager(view.getContext(),3));
+        revFoodMenu.setLayoutManager(new LinearLayoutManager(view.getContext()));
         return view;
     }
 }

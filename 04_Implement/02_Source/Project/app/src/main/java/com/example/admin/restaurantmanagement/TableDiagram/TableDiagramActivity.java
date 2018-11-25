@@ -1,22 +1,14 @@
 package com.example.admin.restaurantmanagement.TableDiagram;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.PopupMenu;
 
-import com.example.admin.restaurantmanagement.FoodManagement.FoodManagementAdapeter;
 import com.example.admin.restaurantmanagement.R;
-import com.example.admin.restaurantmanagement.RestaurantMenu.RestaurantMenuActivity;
-import com.example.admin.restaurantmanagement.SelectedFood.SelectedFoodActivity;
 
 public class TableDiagramActivity extends AppCompatActivity {
     GridView gvTableDiagram;

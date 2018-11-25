@@ -1,4 +1,4 @@
-package com.example.admin.restaurantmanagement.SelectedFood;
+package com.example.admin.restaurantmanagement.PayFood;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,23 +12,23 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.admin.restaurantmanagement.R;
-import com.example.admin.restaurantmanagement.RestaurantMenu.RestaurantMenuActivity;
 import com.example.admin.restaurantmanagement.TableDiagram.TableDiagramActivity;
 
-public class SelectedFoodActivity extends AppCompatActivity {
-    Button btnAddFood, btnPay;
+public class PayFoodActivity extends AppCompatActivity {
+    Button btnPay;
     RecyclerView recyclerView;
-    TextView txtSelectedSumPrice;
+    TextView txtPaySumPrice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.selected_food_activity);
+        setContentView(R.layout.pay_food_activity);
         inItView();
 
-        SelectedFoodAdapter selectedFoodAdapter = new SelectedFoodAdapter();
-        recyclerView.setAdapter(selectedFoodAdapter);
+        PayFoodAdapter payFoodAdapter = new PayFoodAdapter();
+        recyclerView.setAdapter(payFoodAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        txtSelectedSumPrice.setText("Thành tiền: " + selectedFoodAdapter.total());
+        txtPaySumPrice.setText("Thành tiền: " + payFoodAdapter.total());
         btnPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,14 +38,13 @@ public class SelectedFoodActivity extends AppCompatActivity {
     }
 
 
-
     private void payFood() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(SelectedFoodActivity.this,  R.style.Theme_AppCompat_DayNight_Dialog);
-        builder.setMessage("Bạn có chắc muốn  thanh toán?");
+        final AlertDialog.Builder builder = new AlertDialog.Builder(PayFoodActivity.this, R.style.Theme_AppCompat_DayNight_Dialog);
+        builder.setMessage("Bạn có chắc muốn thanh toán?");
         builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent =  new Intent(SelectedFoodActivity.this, TableDiagramActivity.class);
+                Intent intent = new Intent(PayFoodActivity.this, TableDiagramActivity.class);
                 startActivity(intent);
             }
         });
@@ -60,10 +59,9 @@ public class SelectedFoodActivity extends AppCompatActivity {
     }
 
     private void inItView() {
-        recyclerView = (RecyclerView) findViewById(R.id.revSelectedFood);
-        btnAddFood = (Button) findViewById(R.id.btnAddFood);
+        recyclerView = (RecyclerView) findViewById(R.id.revPayFood);
         btnPay = (Button) findViewById(R.id.btnPay);
-        txtSelectedSumPrice = (TextView) findViewById(R.id.txtSeletedSumPrice);
+        txtPaySumPrice = (TextView) findViewById(R.id.txtPaySumPrice);
     }
 
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,22 +10,26 @@
         android:id="@+id/viewPagerMenu"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayoutMenu"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/tabLayoutMenu" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayoutMenu"
         android:layout_width="0dp"
-        android:layout_height="82dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="8dp"
+        android:background="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/viewPagerMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabGravity="fill"
+        app:tabSelectedTextColor="#ff0011"
+        app:tabTextAppearance="@style/TextAppearance.Design.Tab">
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"

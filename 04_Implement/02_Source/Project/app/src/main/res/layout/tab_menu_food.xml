@@ -2,18 +2,15 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="15dp"
-    android:layout_marginTop="5dp"
-    android:layout_marginRight="15dp"
     android:layout_marginBottom="5dp"
     android:background="@drawable/bg_table_diagram">
 
     <ImageView
         android:id="@+id/imgMemuFood"
-        android:layout_width="89dp"
-        android:layout_height="85dp"
+        android:layout_width="73dp"
+        android:layout_height="77dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -24,41 +21,92 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtMenuNameFood"
         android:layout_width="88dp"
         android:layout_height="23dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:gravity="left"
         android:text="foodName"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imgMemuFood"
+        app:layout_constraintBottom_toTopOf="@+id/txtMenuPriceFood"
+        app:layout_constraintEnd_toStartOf="@+id/imgMinusFood"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imgMemuFood"
-        app:layout_constraintTop_toTopOf="@+id/imgMemuFood"
-        app:layout_constraintVertical_bias="0.42" />
+        app:layout_constraintStart_toEndOf="@+id/imgMemuFood"
+        app:layout_constraintTop_toTopOf="@+id/imgMemuFood" />
 
     <TextView
         android:id="@+id/txtMenuPriceFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="12000d"
-        android:textColor="@android:color/white"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imgMemuFood"
-        app:layout_constraintEnd_toEndOf="@+id/imgMemuFood"
+        app:layout_constraintEnd_toStartOf="@+id/imgMinusFood"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imgMemuFood"
-        app:layout_constraintTop_toBottomOf="@+id/txtMenuNameFood"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/imgMemuFood"
+        app:layout_constraintTop_toBottomOf="@+id/txtMenuNameFood" />
+
+    <ImageView
+        android:id="@+id/imgMinusFood"
+        android:layout_width="36dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtFoodNumber"
+        app:layout_constraintStart_toEndOf="@+id/imgMemuFood"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_minus" />
+
+    <ImageView
+        android:id="@+id/imgAddFood"
+        android:layout_width="36dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtFoodNumber"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_add" />
+
+    <TextView
+        android:id="@+id/txtFoodNumber"
+        android:layout_width="17dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgAddFood"
+        app:layout_constraintStart_toEndOf="@+id/imgMinusFood"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="0.2dp"
+        android:background="#0e0e0e"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
