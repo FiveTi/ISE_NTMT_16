@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FoodManagementAdapeter extends RecyclerView.Adapter {
-    List<FoodManagementInfo> foodManagementInfoList =  new ArrayList<>();
+    List<MenuManagementInfo> foodManagementInfoList =  new ArrayList<>();
     Context context;
 
     String prices[] = {"120000d", "130000d", "110000d", "123300d", "190000d", "220000d", "320000d", "420000d"};
@@ -25,7 +25,7 @@ public class FoodManagementAdapeter extends RecyclerView.Adapter {
 
    public FoodManagementAdapeter(){
        for(int i=0;i<prices.length;i++){
-           FoodManagementInfo foodManagementInfo = new FoodManagementInfo(foodImage[i],foods[i],prices[i],foodType[0]);
+           MenuManagementInfo foodManagementInfo = new MenuManagementInfo(foodImage[i],foods[i],prices[i],foodType[0]);
            foodManagementInfoList.add(foodManagementInfo);
        }
    }
@@ -42,11 +42,11 @@ public class FoodManagementAdapeter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         View view = viewHolder.itemView;
         ImageView imgFood = (ImageView) view.findViewById(R.id.imgFoodManage);
-        TextView txtFoodName = (TextView) view.findViewById(R.id.txtTableNameManage);
+        TextView txtFoodName = (TextView) view.findViewById(R.id.txtFoodNameManage);
         TextView txtTypeFood = (TextView) view.findViewById(R.id.txtTypeFoodManage);
         TextView txtPrice = (TextView) view.findViewById(R.id.txtPayPrice);
 
-        FoodManagementInfo foodManagementInfo = foodManagementInfoList.get(i);
+        MenuManagementInfo foodManagementInfo = foodManagementInfoList.get(i);
         imgFood.setImageResource(foodManagementInfo.getImgFood());
         txtFoodName.setText(foodManagementInfo.getFoodName());
         txtPrice.setText(foodManagementInfo.getPrice());

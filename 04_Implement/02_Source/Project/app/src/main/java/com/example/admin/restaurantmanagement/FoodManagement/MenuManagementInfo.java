@@ -1,14 +1,24 @@
 package com.example.admin.restaurantmanagement.FoodManagement;
 
-public class FoodManagementInfo {
+public class MenuManagementInfo {
     Integer imgFood;
-    String foodName, price, type;
+    String foodName, price, type, detail, url;
 
-    public FoodManagementInfo(Integer imgFood, String foodName, String price, String type) {
+    public MenuManagementInfo(Integer imgFood, String foodName, String price, String type) {
         this.imgFood = imgFood;
         this.foodName = foodName;
         this.price = price;
         this.type = type;
+    }
+
+    public MenuManagementInfo(String foodName, String price, String detail, String url) {
+        this.foodName = foodName;
+        this.price = price;
+        this.detail = detail;
+        this.url = url;
+    }
+
+    public MenuManagementInfo(){
     }
 
     public Integer getImgFood() {
@@ -41,5 +51,21 @@ public class FoodManagementInfo {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

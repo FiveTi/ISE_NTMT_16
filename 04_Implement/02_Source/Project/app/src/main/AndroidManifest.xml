@@ -11,7 +11,14 @@
         android:theme="@style/AppTheme">
         <activity android:name=".PayFood.PayFoodActivity"></activity>
         <activity android:name=".RestaurantMenu.RestaurantMenuActivity"></activity>
-        <activity android:name=".TableDiagram.TableDiagramActivity">>
+        <activity android:name=".FoodManagement.FoodManagementActivity"></activity>
+        <activity android:name=".FoodManagement.AddFoodManagementActivity"></activity>
+        <activity android:name=".FoodManagement.AddDrinkManagementActivity"></activity>
+        <activity android:name=".EmployManagement.EmployManagementActivity"></activity>
+        <activity android:name=".TableManagement.TableManagementActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
+
+        <activity android:name=".Management.ManagementActivity">>
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

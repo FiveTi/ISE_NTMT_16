@@ -3,11 +3,14 @@ package com.example.admin.restaurantmanagement.RestaurantMenu;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.example.admin.restaurantmanagement.R;
+import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.OrderFragment;
 
 public class RestaurantMenuActivity extends AppCompatActivity {
     private TabLayout tabLayoutMenu;
@@ -23,7 +26,6 @@ public class RestaurantMenuActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         MenuAdapter menuAdapter = new MenuAdapter(fragmentManager);
         viewPagerMenu.setAdapter(menuAdapter);
-
     }
 
     private void InitView() {
@@ -31,6 +33,5 @@ public class RestaurantMenuActivity extends AppCompatActivity {
         viewPagerMenu = (ViewPager) findViewById(R.id.viewPagerMenu);
         tabLayoutMenu.setTabMode(TabLayout.MODE_FIXED);
         tabLayoutMenu.setTabGravity(TabLayout.GRAVITY_FILL);
-        tabLayoutMenu.setBackgroundResource(R.drawable.bg_table_diagram);
     }
 }

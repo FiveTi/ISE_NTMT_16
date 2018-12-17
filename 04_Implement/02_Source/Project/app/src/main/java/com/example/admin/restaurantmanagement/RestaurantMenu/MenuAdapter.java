@@ -4,8 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.DessertsMenuFragment;
-import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.DrinkMenuFragment;
 import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.FoodMenuFragment;
 
 import java.util.ArrayList;
