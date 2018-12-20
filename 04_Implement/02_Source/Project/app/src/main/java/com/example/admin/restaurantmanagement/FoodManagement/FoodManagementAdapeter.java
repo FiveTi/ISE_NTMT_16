@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.admin.restaurantmanagement.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,11 +24,8 @@ public class FoodManagementAdapeter extends RecyclerView.Adapter {
     Integer foodImage[] = {R.drawable.food1, R.drawable.food2,R.drawable.food3, R.drawable.food4, R.drawable.food5, R.drawable.food6, R.drawable.food7, R.drawable.food8};
     String foodType[] = {"Món chính"};
 
-   public FoodManagementAdapeter(){
-       for(int i=0;i<prices.length;i++){
-           MenuManagementInfo foodManagementInfo = new MenuManagementInfo(foodImage[i],foods[i],prices[i],foodType[0]);
-           foodManagementInfoList.add(foodManagementInfo);
-       }
+   public FoodManagementAdapeter(List<MenuManagementInfo> menuManagementInfoList){
+        this.foodManagementInfoList =menuManagementInfoList;
    }
 
     @NonNull
@@ -41,17 +39,14 @@ public class FoodManagementAdapeter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         View view = viewHolder.itemView;
-        ImageView imgFood = (ImageView) view.findViewById(R.id.imgFoodManage);
-        TextView txtFoodName = (TextView) view.findViewById(R.id.txtFoodNameManage);
-        TextView txtTypeFood = (TextView) view.findViewById(R.id.txtTypeFoodManage);
-        TextView txtPrice = (TextView) view.findViewById(R.id.txtPayPrice);
+        ImageView imgFood = (ImageView) view.findViewById(R.id.imgMenuFood);
+        TextView txtFoodName = (TextView) view.findViewById(R.id.txtManageFoodName);
+        TextView txtPrice = (TextView) view.findViewById(R.id.txtMenuPayPrice);
 
         MenuManagementInfo foodManagementInfo = foodManagementInfoList.get(i);
-        imgFood.setImageResource(foodManagementInfo.getImgFood());
         txtFoodName.setText(foodManagementInfo.getFoodName());
         txtPrice.setText(foodManagementInfo.getPrice());
-        txtTypeFood.setText(foodManagementInfo.getType());
-
+        Picasso.get().load(foodManagementInfo.getUrl()).into(imgFood);
     }
 
     @Override

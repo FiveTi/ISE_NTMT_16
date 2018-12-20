@@ -2,7 +2,11 @@ package com.example.admin.restaurantmanagement.FoodManagement;
 
 public class MenuManagementInfo {
     Integer imgFood;
-    String foodName, price, type, detail, url;
+    String foodName, price, detail, url, type;
+
+
+    public MenuManagementInfo(){
+    }
 
     public MenuManagementInfo(Integer imgFood, String foodName, String price, String type) {
         this.imgFood = imgFood;
@@ -18,8 +22,7 @@ public class MenuManagementInfo {
         this.url = url;
     }
 
-    public MenuManagementInfo(){
-    }
+
 
     public Integer getImgFood() {
         return imgFood;

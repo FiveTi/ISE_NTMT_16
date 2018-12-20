@@ -86,12 +86,12 @@ public class AddFoodManagementActivity extends AppCompatActivity {
 
 
     private void inItView() {
-        toolbar = findViewById(R.id.nav_add_food);
+        toolbar = findViewById(R.id.nav_restaurent_menu);
         edtDetail = findViewById(R.id.edtDrinkDetail);
         edtFoodName = findViewById(R.id.edtDrinkName);
         edtFoodPrice = findViewById(R.id.edtDrinkPrice);
         btnChoseImage = findViewById(R.id.btnChooseImage);
-        imgFood = findViewById(R.id.imgAddDrink);
+        imgFood = findViewById(R.id.imgbManageDeleteFood);
     }
 
     @Override
@@ -118,8 +118,8 @@ public class AddFoodManagementActivity extends AppCompatActivity {
     private void uploadFood() {
         if (imgUri != null) {
             final ProgressDialog dialog = new ProgressDialog(this);
-                dialog.setTitle("Uploading image");
-                dialog.show();
+            dialog.setTitle("Uploading image");
+            dialog.show();
 
             //Get the storage reference
             final StorageReference ref = mStorageRef.child(FB_DATABASE_FOOD + System.currentTimeMillis() + "." + getImageExt(imgUri));
@@ -132,7 +132,7 @@ public class AddFoodManagementActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Image uploaded", Toast.LENGTH_SHORT).show();
 
                     Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
-                    while (!urlTask.isSuccessful());
+                    while (!urlTask.isSuccessful()) ;
                     Uri downloadUrl = urlTask.getResult();
 
                     MenuManagementInfo foodManagementInfo = new MenuManagementInfo(edtFoodName.getText().toString(),
@@ -143,6 +143,8 @@ public class AddFoodManagementActivity extends AppCompatActivity {
                     //Save image info into firebase database
                     String uploadId = mDatabaseRef.push().getKey();
                     mDatabaseRef.child(uploadId).setValue(foodManagementInfo);
+                    Intent intent = new Intent(AddFoodManagementActivity.this, FoodManagementActivity.class);
+                    startActivity(intent);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

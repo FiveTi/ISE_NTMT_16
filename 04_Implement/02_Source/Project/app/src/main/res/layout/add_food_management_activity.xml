@@ -56,7 +56,7 @@
         android:hint="Price" />
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/nav_add_food"
+        android:id="@+id/nav_restaurent_menu"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
@@ -67,7 +67,7 @@
 
 
     <ImageView
-        android:id="@+id/imgAddDrink"
+        android:id="@+id/imgbManageDeleteFood"
         android:layout_width="match_parent"
         android:layout_height="262dp"
         android:layout_below="@+id/edtDrinkDetail"
@@ -87,7 +87,7 @@
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:background="@drawable/bg_table_diagram"
-        android:layout_below="@+id/imgAddDrink"
+        android:layout_below="@+id/imgbManageDeleteFood"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-73dp"
         android:text="Choose image"

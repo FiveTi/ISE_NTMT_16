@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.admin.restaurantmanagement.FoodManagement.AddFoodManagementActivity;
 import com.example.admin.restaurantmanagement.R;
+import com.example.admin.restaurantmanagement.RestaurantMenu.Adapter.DrinkMenuAdapter;
 import com.example.admin.restaurantmanagement.RestaurantMenu.Adapter.FoodMenuAdapter;
 import com.example.admin.restaurantmanagement.RestaurantMenu.MenuInfo;
 import com.example.admin.restaurantmanagement.RestaurantMenu.RestaurantMenuActivity;
@@ -25,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FoodMenuFragment extends Fragment {
+public class DrinkMenuFragment extends Fragment {
     private List<MenuInfo> menuInfoList = new ArrayList<>();
     RecyclerView revFoodMenu;
     private DatabaseReference mDatabaseRef;
@@ -40,10 +41,10 @@ public class FoodMenuFragment extends Fragment {
         progressDialog.setMessage("Vui lòng chờ giây lát...");
         progressDialog.show();
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference(AddFoodManagementActivity.FB_DATABASE_FOOD);
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(AddFoodManagementActivity.FB_DATABASE_DRINK);
 
-        final FoodMenuAdapter foodMenuAdapter = new FoodMenuAdapter(menuInfoList);
-        revFoodMenu.setAdapter(foodMenuAdapter);
+        final DrinkMenuAdapter drinkMenuAdapter = new DrinkMenuAdapter(menuInfoList);
+        revFoodMenu.setAdapter(drinkMenuAdapter);
         revFoodMenu.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
@@ -56,7 +57,7 @@ public class FoodMenuFragment extends Fragment {
                     MenuInfo menuInfo = snapshot.getValue(MenuInfo.class);
                     menuInfoList.add(menuInfo);
                 }
-                foodMenuAdapter.notifyDataSetChanged();
+                drinkMenuAdapter.notifyDataSetChanged();
             }
 
             @Override

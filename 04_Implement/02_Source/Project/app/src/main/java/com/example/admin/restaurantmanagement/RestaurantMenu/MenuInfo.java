@@ -2,7 +2,9 @@ package com.example.admin.restaurantmanagement.RestaurantMenu;
 
 public class MenuInfo {
     Integer imgFood;
-    String foodName, price;
+    String foodName, price, detail, url;
+
+    public MenuInfo(){}
 
     public MenuInfo(Integer imgFood, String foodName, String price) {
         this.imgFood = imgFood;
@@ -32,5 +34,21 @@ public class MenuInfo {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

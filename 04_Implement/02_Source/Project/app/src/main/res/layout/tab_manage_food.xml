@@ -4,99 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="5dp"
-    android:layout_marginTop="5dp"
-    android:layout_marginRight="5dp"
-    android:layout_marginBottom="5dp"
-    android:background="@android:color/white">
+    android:layout_marginTop="3dp"
+    android:layout_marginBottom="3dp"
+    android:background="@drawable/bg_table_diagram">
 
     <ImageView
-        android:id="@+id/imgFoodManage"
-        android:layout_width="68dp"
-        android:layout_height="76dp"
+        android:id="@+id/imgMenuFood"
+        android:layout_width="73dp"
+        android:layout_height="77dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_table_diagram"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtFoodNameManage"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtFoodNameManage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="32dp"
-        android:gravity="left"
-        android:text="foodName"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtTypeFoodManage"
-        app:layout_constraintEnd_toStartOf="@+id/imgbDeleteFoodManage"
-        app:layout_constraintStart_toEndOf="@+id/imgFoodManage"
-        app:layout_constraintTop_toTopOf="@+id/imgFoodManage" />
-
-    <TextView
-        android:id="@+id/txtPayPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/txtManageFoodName"
+        android:layout_width="88dp"
+        android:layout_height="23dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="12000d"
-        android:textColor="#ab1221"
-        android:textSize="20sp"
+        android:layout_marginBottom="8dp"
+        android:gravity="left"
+        android:text="foodName"
+        android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imgFoodManage"
-        app:layout_constraintEnd_toStartOf="@+id/imgbDeleteFoodManage"
-        app:layout_constraintHorizontal_bias="0.246"
-        app:layout_constraintStart_toEndOf="@+id/imgFoodManage"
-        app:layout_constraintTop_toBottomOf="@+id/txtFoodNameManage"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintBottom_toTopOf="@+id/txtMenuPayPrice"
+        app:layout_constraintStart_toEndOf="@+id/imgMenuFood"
+        app:layout_constraintTop_toTopOf="@+id/imgMenuFood" />
 
     <TextView
-        android:id="@+id/txtTypeFoodManage"
+        android:id="@+id/txtMenuPayPrice"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="12000d"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgMenuFood"
+        app:layout_constraintStart_toEndOf="@+id/imgMenuFood"
+        app:layout_constraintTop_toBottomOf="@+id/txtManageFoodName" />
+
+    <ImageView
+        android:id="@+id/imgbManageDeleteFood"
+        android:layout_width="28dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="112dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Món chính"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtPayPrice"
-        app:layout_constraintEnd_toStartOf="@+id/imgbDeleteFoodManage"
-        app:layout_constraintStart_toEndOf="@+id/imgFoodManage"
-        app:layout_constraintTop_toBottomOf="@+id/txtFoodNameManage"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageButton
-        android:id="@+id/imgbDeleteFoodManage"
-        android:layout_width="50dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="8dp"
-        android:background="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgbEditFoodManage"
-        app:layout_constraintStart_toEndOf="@+id/txtTypeFoodManage"
+        app:layout_constraintEnd_toStartOf="@+id/imgbManageEditFood"
+        app:layout_constraintStart_toEndOf="@+id/txtManageFoodName"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.593"
+        app:layout_constraintVertical_bias="0.49"
         app:srcCompat="@drawable/ic_delete_black_24dp" />
 
-    <ImageButton
-        android:id="@+id/imgbEditFoodManage"
-        android:layout_width="49dp"
-        android:layout_height="53dp"
-        android:background="@android:color/white"
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="0dp"
+        android:layout_height="0.2dp"
+        android:background="#0e0e0e"
+        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgbDeleteFoodManage"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgbManageEditFood"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintStart_toEndOf="@+id/imgbManageDeleteFood"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621"
         app:srcCompat="@drawable/ic_edit_black_24dp" />
 
 </android.support.constraint.ConstraintLayout>

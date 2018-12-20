@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.DrinkMenuFragment;
 import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.FoodMenuFragment;
 
 import java.util.ArrayList;
@@ -21,12 +22,10 @@ public class MenuAdapter extends FragmentStatePagerAdapter {
 
         //add fragment vao list
         menuFragment.add(new FoodMenuFragment());
-        menuFragment.add(new FoodMenuFragment());
-        menuFragment.add(new FoodMenuFragment());
+        menuFragment.add(new DrinkMenuFragment());
 
         //add titles
-        titles.add("Món chính");
-        titles.add("Món tráng miệng");
+        titles.add("Món ăn");
         titles.add("Thức uống");
     }
 
