@@ -44,8 +44,10 @@ public class PayFoodActivity extends AppCompatActivity {
         builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
                 Intent intent = new Intent(PayFoodActivity.this, TableDiagramActivity.class);
                 startActivity(intent);
+
             }
         });
 

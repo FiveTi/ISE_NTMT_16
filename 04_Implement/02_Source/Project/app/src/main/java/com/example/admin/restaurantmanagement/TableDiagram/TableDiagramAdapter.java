@@ -21,7 +21,7 @@ import java.util.List;
 public class TableDiagramAdapter extends BaseAdapter {
     private Context context;
     private List<TableInfo> tableInfoList = new ArrayList<>();
-    ViewHolder viewHolder;
+    public ViewHolder viewHolder;
     String tableName[] = {"Bàn 01", "Bàn 02", "Bàn 03", "Bàn 04", "Bàn 05", "Bàn 06", "Bàn 07", "Bàn 08", "Bàn 09", "Bàn 10",
             "Bàn 01", "Bàn 02", "Bàn 03", "Bàn 04", "Bàn 05", "Bàn 06", "Bàn 07", "Bàn 08", "Bàn 09", "Bàn 10"};
     Boolean selected = false;

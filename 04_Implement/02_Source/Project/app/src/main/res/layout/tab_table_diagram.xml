@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="15dp"
+    android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="15dp"
     android:layout_marginBottom="10dp"
@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/imgTable"
-        android:layout_width="86dp"
-        android:layout_height="86dp"
+        android:layout_width="97dp"
+        android:layout_height="98dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/txtTableName"

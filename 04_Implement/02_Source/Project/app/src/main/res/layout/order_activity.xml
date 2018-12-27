@@ -43,7 +43,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="0dp"
-                android:text="Thit heo 10 mon"
+                android:text="Heo hầm"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
@@ -80,25 +80,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n
-Ngon qua ahihi\n"
+                android:text="Updating\n"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"

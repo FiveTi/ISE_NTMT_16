@@ -1,5 +1,6 @@
 package com.example.admin.restaurantmanagement.RestaurantMenu.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,7 +20,6 @@ public class OrderFragment extends Fragment {
     TextView txtOrderFoodName, txtOrderFoodDetail,txtNumOrderFood;
     Button btnOrderFoodPrice;
     String orderPrice = "100000";
-
 
     @Nullable
     @Override
@@ -48,32 +48,20 @@ public class OrderFragment extends Fragment {
             }
         });
 
-        imgCloseOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment myFragment=new FoodMenuFragment();
-                RestaurantMenuActivity appCompatActivity = (RestaurantMenuActivity) getActivity();
-                appCompatActivity.getSupportFragmentManager()
-                        .beginTransaction()
-                        .add(R.id.container, myFragment)
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
+
 
         btnOrderFoodPrice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                RestaurantMenuActivity restaurantMenuActivity = (RestaurantMenuActivity) getActivity();
-////                Fragment orderFragment = restaurantMenuActivity.getSupportFragmentManager().findFragmentById(R.id.fragmentOrder);
-////                restaurantMenuActivity.getSupportFragmentManager()
-////                        .beginTransaction()
-////                        .remove(orderFragment)
-////                        .commit();
-
+                showMenu();
             }
         });
         return view;
+    }
+
+    private void showMenu() {
+        Intent intent = new Intent(getActivity(), RestaurantMenuActivity.class);
+        startActivity(intent);
     }
 
     private void minusFood() {

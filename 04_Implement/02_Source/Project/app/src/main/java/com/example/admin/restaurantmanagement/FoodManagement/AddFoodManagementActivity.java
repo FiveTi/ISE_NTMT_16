@@ -61,7 +61,7 @@ public class AddFoodManagementActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         mStorageRef = FirebaseStorage.getInstance().getReference(FB_STORAGE_FOOD);
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_FOOD);
-        toolbar.setTitle("Add food");
+        toolbar.setTitle("Thêm món ăn");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

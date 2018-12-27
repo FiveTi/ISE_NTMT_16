@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
+    android:layout_marginBottom="3dp"
+    android:layout_marginTop="3dp"
     android:background="@drawable/bg_table_diagram">
 
     <ImageView
@@ -25,7 +26,7 @@
 
     <TextView
         android:id="@+id/txtMenuFoodName"
-        android:layout_width="88dp"
+        android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -36,7 +37,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtMenuPayPrice"
         app:layout_constraintStart_toEndOf="@+id/imgMenuFood"
-        app:layout_constraintTop_toTopOf="@+id/imgMenuFood" />
+        app:layout_constraintTop_toTopOf="@+id/imgMenuFood"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txtMenuPayPrice"
@@ -58,7 +60,7 @@
         android:layout_height="34dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

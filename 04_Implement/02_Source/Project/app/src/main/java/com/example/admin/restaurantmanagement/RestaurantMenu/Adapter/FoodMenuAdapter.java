@@ -1,5 +1,6 @@
 package com.example.admin.restaurantmanagement.RestaurantMenu.Adapter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -18,15 +19,12 @@ import java.util.List;
 
 public class FoodMenuAdapter extends RecyclerView.Adapter {
     List<MenuInfo> menuDrinkList;
-    String prices[] = {"120000d", "130000d", "110000d", "123300d", "190000d", "220000d", "320000d", "420000d"};
-    String foodNames[] = {"Husky", "Bo", "Pho", "Heo", "Gà", "Vịt", "De", "Cừu"};
-    Integer foodImage[] = {R.drawable.ic_arrow_back_black_24dp, R.drawable.food2, R.drawable.food3, R.drawable.food4,
-            R.drawable.food5, R.drawable.food6, R.drawable.food7, R.drawable.food8};
     Bundle menuBundle;
-    FoodMenuFragment fragment;
-
-    public FoodMenuAdapter(List<MenuInfo> menuInfos) {
+    FoodMenuFragment foodMenuFragment;
+    Integer posFood;
+    public FoodMenuAdapter(List<MenuInfo> menuInfos, FoodMenuFragment foodMenuFragment) {
         this.menuDrinkList = menuInfos;
+        this.foodMenuFragment = foodMenuFragment;
     }
 
     @NonNull
@@ -35,7 +33,6 @@ public class FoodMenuAdapter extends RecyclerView.Adapter {
         LayoutInflater layoutInflater = LayoutInflater.from(viewGroup.getContext());
         View view = layoutInflater.inflate(R.layout.tab_menu_food, viewGroup, false);
         return new MyFoodMenuViewHolder(view);
-
     }
 
 
@@ -45,14 +42,14 @@ public class FoodMenuAdapter extends RecyclerView.Adapter {
 
         MenuInfo menuInfo = menuDrinkList.get(i);
         myFoodMenuViewHolder.txtMenuNameFood.setText(menuInfo.getFoodName());
-        myFoodMenuViewHolder.txtMemuPrice.setText(menuInfo.getPrice());
-
+        myFoodMenuViewHolder.txtMemuPrice.setText(menuInfo.getPrice() + "d");
         Picasso.get().load(menuInfo.getUrl()).into(myFoodMenuViewHolder.imgMenuFood);
 
+//        final Integer posFood = i;
         myFoodMenuViewHolder.imgAddFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment.showDetail();
+                foodMenuFragment.showDetail();
             }
         });
     }

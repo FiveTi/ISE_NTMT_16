@@ -19,7 +19,7 @@
         android:paddingLeft="10dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Drink name"/>
+        android:hint="Tên thức uống"/>
 
     <EditText
         android:id="@+id/edtDrinkDetail"
@@ -36,7 +36,7 @@
         android:paddingLeft="10dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Detail"/>
+        android:hint="Mô tả"/>
 
     <EditText
         android:id="@+id/edtDrinkPrice"
@@ -53,7 +53,7 @@
         android:paddingLeft="10dp"
         android:ems="10"
         android:inputType="number"
-        android:hint="Price" />
+        android:hint="Giá" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/nav_restaurent_menu"
@@ -90,7 +90,7 @@
         android:layout_below="@+id/imgbManageDeleteFood"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-73dp"
-        android:text="Choose image"
+        android:text="Chọn ảnh"
         android:textAllCaps="false"/>
 
 

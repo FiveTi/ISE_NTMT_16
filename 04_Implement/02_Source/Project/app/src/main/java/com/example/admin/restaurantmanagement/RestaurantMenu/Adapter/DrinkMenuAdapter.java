@@ -2,6 +2,7 @@ package com.example.admin.restaurantmanagement.RestaurantMenu.Adapter;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.admin.restaurantmanagement.R;
+import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.DrinkMenuFragment;
 import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.FoodMenuFragment;
 import com.example.admin.restaurantmanagement.RestaurantMenu.MenuInfo;
 import com.squareup.picasso.Picasso;
@@ -18,9 +20,10 @@ import java.util.List;
 
 public class DrinkMenuAdapter extends RecyclerView.Adapter{
     List<MenuInfo> menuInfoList;
-
-    public DrinkMenuAdapter(List<MenuInfo> menuInfos) {
+    DrinkMenuFragment drinkMenuFragment;
+    public DrinkMenuAdapter(List<MenuInfo> menuInfos, DrinkMenuFragment drinkMenuFragment) {
         this.menuInfoList = menuInfos;
+        this.drinkMenuFragment =drinkMenuFragment;
     }
 
     @NonNull
@@ -39,14 +42,14 @@ public class DrinkMenuAdapter extends RecyclerView.Adapter{
 
         MenuInfo menuInfo = menuInfoList.get(i);
         myFoodMenuViewHolder.txtMenuNameFood.setText(menuInfo.getFoodName());
-        myFoodMenuViewHolder.txtMemuPrice.setText(menuInfo.getPrice());
+        myFoodMenuViewHolder.txtMemuPrice.setText(menuInfo.getPrice()+"d");
 
         Picasso.get().load(menuInfo.getUrl()).into(myFoodMenuViewHolder.imgMenuFood);
 
         myFoodMenuViewHolder.imgAddFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                fragment.showDetail();
+               drinkMenuFragment.showDetail();
             }
         });
     }

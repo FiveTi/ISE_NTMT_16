@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
+    android:id="@+id/login_container"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_app">
+    android:background="@drawable/bg_restaurant">
+
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -19,37 +21,41 @@
 
         <EditText
             android:id="@+id/edtUser"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_table_diagram"
             android:ems="10"
             android:hint="Tài khoản: "
             android:inputType="textPersonName"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
+            android:paddingLeft="15dp"
+            android:textColor="#663519"
+            android:textColorHint="#663519"
             android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/edtPass"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/edtPass"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:ems="10"
+            android:background="@drawable/bg_table_diagram"
+            android:paddingLeft="15dp"
             android:hint="Mật khẩu: "
             android:inputType="textPassword"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
+            android:textColor="#663519"
+            android:textColorHint="#663519"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,8 +65,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="95dp"
-        android:layout_height="95dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_margin="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -75,20 +81,20 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="320dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/bg_table_diagram"
+        android:backgroundTint="#663519"
         android:text="Đăng nhập"
-        android:textColor="#663519"
-        android:textStyle="bold"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.146" />
+        app:layout_constraintVertical_bias="0.060000002" />
 </android.support.constraint.ConstraintLayout>

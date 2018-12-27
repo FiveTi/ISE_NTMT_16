@@ -61,7 +61,7 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         mStorageRef = FirebaseStorage.getInstance().getReference(AddFoodManagementActivity.FB_STORAGE_DRINK);
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(AddFoodManagementActivity.FB_DATABASE_DRINK);
-        toolbar.setTitle("Add drink");
+        toolbar.setTitle("Thêm thức uống");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
