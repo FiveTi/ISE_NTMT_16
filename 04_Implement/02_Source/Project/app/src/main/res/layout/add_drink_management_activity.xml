@@ -73,7 +73,7 @@
 
 
     <ImageView
-        android:id="@+id/imgbAddEmployManage"
+        android:id="@+id/imgAddEmployManage"
         android:layout_width="match_parent"
         android:layout_height="262dp"
         android:layout_below="@+id/edtDrinkDetail"
@@ -93,7 +93,7 @@
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:background="@drawable/bg_table_diagram"
-        android:layout_below="@+id/imgbAddEmployManage"
+        android:layout_below="@+id/imgAddEmployManage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-73dp"
         android:text="Chọn ảnh"

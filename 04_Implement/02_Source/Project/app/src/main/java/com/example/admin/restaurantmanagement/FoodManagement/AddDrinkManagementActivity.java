@@ -91,7 +91,7 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
         edtDrinkName = findViewById(R.id.edtDrinkName);
         edtDrinkPrice = findViewById(R.id.edtDrinkPrice);
         btnChoseImage = findViewById(R.id.btnChooseImageManage);
-        imgDrink = findViewById(R.id.imgbAddEmployManage);
+        imgDrink = findViewById(R.id.imgAddEmployManage);
 
     }
 

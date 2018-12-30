@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.admin.restaurantmanagement.FoodManagement.AddDrinkManagementActivity;
 import com.example.admin.restaurantmanagement.FoodManagement.AddFoodManagementActivity;
@@ -55,11 +56,10 @@ public class EmployManagementActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.action_add_employ_management){
-            Intent intent = new Intent(EmployManagementActivity.this,AddEmployManagementActivity.class);
+        if(id==R.id.action_add_employ_management){
+            Intent intent = new Intent(EmployManagementActivity.this, AddEmployManagementActivity.class);
             startActivity(intent);
         }
-
         return super.onOptionsItemSelected(item);
     }
 

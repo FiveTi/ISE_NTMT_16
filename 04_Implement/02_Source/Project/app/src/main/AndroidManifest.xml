@@ -22,10 +22,11 @@
 
         <activity android:name=".TableManagement.TableManagementActivity"></activity>
         <activity android:name=".Management.ManagementActivity"></activity>
-        <activity android:name=".OrderActivity.OrderActivity"></activity>
 
         <activity android:name=".Login.LoginActivity"></activity>
 
+
+        <activity android:name=".OrderActivity.OrderActivity"></activity>
         <activity android:name=".TableDiagram.TableDiagramActivity"></activity>
         <activity android:name=".PayFood.PayFoodActivity"></activity>
         <activity android:name=".RestaurantMenu.RestaurantMenuActivity"></activity>

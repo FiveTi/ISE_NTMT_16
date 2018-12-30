@@ -7,6 +7,14 @@ public class EmployManagementInfo {
 
     public EmployManagementInfo(){}
 
+    public EmployManagementInfo(String employName, String phone, String email, String pass, String url) {
+        this.employName = employName;
+        this.phone = phone;
+        this.email = email;
+        this.pass = pass;
+        this.url = url;
+    }
+
     public EmployManagementInfo(Integer imgEmploy, String employName, String birthDate) {
         this.imgEmploy = imgEmploy;
         this.employName = employName;

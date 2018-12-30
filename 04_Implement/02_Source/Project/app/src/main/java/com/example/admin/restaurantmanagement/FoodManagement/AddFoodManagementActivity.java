@@ -59,8 +59,10 @@ public class AddFoodManagementActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         mStorageRef = FirebaseStorage.getInstance().getReference(FB_STORAGE_FOOD);
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_FOOD);
+
         toolbar.setTitle("Thêm món ăn");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +93,7 @@ public class AddFoodManagementActivity extends AppCompatActivity {
         edtFoodName = findViewById(R.id.edtDrinkName);
         edtFoodPrice = findViewById(R.id.edtDrinkPrice);
         btnChoseImage = findViewById(R.id.btnChooseImageManage);
-        imgFood = findViewById(R.id.imgbAddEmployManage);
+        imgFood = findViewById(R.id.imgAddEmployManage);
     }
 
     @Override
@@ -105,7 +107,6 @@ public class AddFoodManagementActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.action_save) {
             uploadFood();
         }
-
         return true;
     }
 
@@ -150,6 +151,7 @@ public class AddFoodManagementActivity extends AppCompatActivity {
                     dialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Đăng tải thành công", Toast.LENGTH_SHORT).show();
 
+                    //lấy uri download
                     Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                     while (!urlTask.isSuccessful()) ;
                     Uri downloadUrl = urlTask.getResult();
