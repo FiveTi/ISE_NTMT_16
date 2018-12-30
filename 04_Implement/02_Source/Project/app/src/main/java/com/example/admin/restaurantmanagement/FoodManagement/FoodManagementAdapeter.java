@@ -39,9 +39,9 @@ public class FoodManagementAdapeter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         View view = viewHolder.itemView;
-        ImageView imgFood = (ImageView) view.findViewById(R.id.imgMenuFood);
-        TextView txtFoodName = (TextView) view.findViewById(R.id.txtManageFoodName);
-        TextView txtPrice = (TextView) view.findViewById(R.id.txtMenuPayPrice);
+        ImageView imgFood = (ImageView) view.findViewById(R.id.imgEmployManage);
+        TextView txtFoodName = (TextView) view.findViewById(R.id.txtEmployNameManage);
+        TextView txtPrice = (TextView) view.findViewById(R.id.txtEmployGender);
 
         MenuManagementInfo foodManagementInfo = foodManagementInfoList.get(i);
         txtFoodName.setText(foodManagementInfo.getFoodName());

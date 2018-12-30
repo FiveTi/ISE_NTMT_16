@@ -86,12 +86,12 @@ public class AddFoodManagementActivity extends AppCompatActivity {
 
 
     private void inItView() {
-        toolbar = findViewById(R.id.nav_restaurent_menu);
+        toolbar = findViewById(R.id.nav_add_employ_management);
         edtDetail = findViewById(R.id.edtDrinkDetail);
         edtFoodName = findViewById(R.id.edtDrinkName);
         edtFoodPrice = findViewById(R.id.edtDrinkPrice);
-        btnChoseImage = findViewById(R.id.btnChooseImage);
-        imgFood = findViewById(R.id.imgbManageDeleteFood);
+        btnChoseImage = findViewById(R.id.btnChooseImageManage);
+        imgFood = findViewById(R.id.imgbAddEmployManage);
     }
 
     @Override
@@ -116,6 +116,25 @@ public class AddFoodManagementActivity extends AppCompatActivity {
     }
 
     private void uploadFood() {
+        String name = edtFoodName.getText().toString();
+        String price = edtFoodPrice.getText().toString();
+        String detail = edtDetail.getText().toString();
+
+        if(name.isEmpty()){
+            edtFoodName.setError("Bạn cần nhập tên");
+            edtFoodName.requestFocus();
+        }
+
+        if(price.isEmpty()){
+            edtFoodPrice.setError("Bạn cần nhập giá");
+            edtFoodPrice.requestFocus();
+        }
+
+        if(detail.isEmpty()){
+            edtDetail.setError("Bạn cần nhập mô tả");
+            edtDetail.requestFocus();
+        }
+
         if (imgUri != null) {
             final ProgressDialog dialog = new ProgressDialog(this);
             dialog.setTitle("Uploading image");
@@ -129,7 +148,7 @@ public class AddFoodManagementActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     dialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Image uploaded", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Đăng tải thành công", Toast.LENGTH_SHORT).show();
 
                     Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                     while (!urlTask.isSuccessful()) ;
@@ -144,6 +163,7 @@ public class AddFoodManagementActivity extends AppCompatActivity {
                     String uploadId = mDatabaseRef.push().getKey();
                     mDatabaseRef.child(uploadId).setValue(foodManagementInfo);
                     Intent intent = new Intent(AddFoodManagementActivity.this, FoodManagementActivity.class);
+                    finish();
                     startActivity(intent);
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -161,7 +181,7 @@ public class AddFoodManagementActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Toast.makeText(getApplicationContext(), "Please select image", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Vui lòng chọn hình ảnh", Toast.LENGTH_SHORT).show();
         }
     }
 

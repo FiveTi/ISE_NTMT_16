@@ -8,6 +8,8 @@
         android:id="@+id/edtDrinkName"
         android:layout_width="364dp"
         android:height="200dp"
+        android:drawableLeft="@drawable/ic_food"
+        android:drawablePadding="@dimen/drawable_padding"
         android:background="@drawable/bg_add_food"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
@@ -25,6 +27,8 @@
         android:id="@+id/edtDrinkDetail"
         android:layout_width="364dp"
         android:height="200dp"
+        android:drawableLeft="@drawable/ic_detail"
+        android:drawablePadding="@dimen/drawable_padding"
         android:background="@drawable/bg_add_food"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
@@ -42,6 +46,8 @@
         android:id="@+id/edtDrinkPrice"
         android:layout_width="364dp"
         android:height="200dp"
+        android:drawableLeft="@drawable/ic_price"
+        android:drawablePadding="@dimen/drawable_padding"
         android:background="@drawable/bg_add_food"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
@@ -56,18 +62,18 @@
         android:hint="Giá" />
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/nav_restaurent_menu"
+        android:id="@+id/nav_add_employ_management"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
-        app:title="Add food"
+        app:title="Thêm món ăn"
         android:background="#df8e15"
         android:theme="@style/ThemeOverlay.AppCompat.Dark">
     </android.support.v7.widget.Toolbar>
 
 
     <ImageView
-        android:id="@+id/imgbManageDeleteFood"
+        android:id="@+id/imgbAddEmployManage"
         android:layout_width="match_parent"
         android:layout_height="262dp"
         android:layout_below="@+id/edtDrinkDetail"
@@ -83,11 +89,11 @@
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <Button
-        android:id="@+id/btnChooseImage"
+        android:id="@+id/btnChooseImageManage"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:background="@drawable/bg_table_diagram"
-        android:layout_below="@+id/imgbManageDeleteFood"
+        android:layout_below="@+id/imgbAddEmployManage"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-73dp"
         android:text="Chọn ảnh"

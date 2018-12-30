@@ -18,6 +18,7 @@ import com.example.admin.restaurantmanagement.TableManagement.TableManagementAct
 
 public class ManagementActivity extends AppCompatActivity {
     Button btnLogOut, btnManageEmploy, btnManageFood, btnManageTable, btnStatistic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,7 @@ public class ManagementActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ManagementActivity.this, FoodManagementActivity.class);
-                    startActivity(intent);
+                startActivity(intent);
             }
         });
 
@@ -64,21 +65,29 @@ public class ManagementActivity extends AppCompatActivity {
             }
         });
 
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                returnToLogin(ManagementActivity.this);
+            }
+        });
+
     }
 
     //quay trở lại màn hình đăng nhập
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode==event.KEYCODE_BACK){
+        if (keyCode == event.KEYCODE_BACK) {
             returnToLogin(ManagementActivity.this);
         }
         return super.onKeyDown(keyCode, event);
     }
 
-    public AlertDialog.Builder returnToLogin(Context context){
+    public AlertDialog.Builder returnToLogin(Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("ĐĂNG XUẤT");
         builder.setMessage("Bạn có chắc muốn đăng xuất?");
+
         builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -93,6 +102,7 @@ public class ManagementActivity extends AppCompatActivity {
             }
         });
         builder.show();
+
         return builder;
     }
 

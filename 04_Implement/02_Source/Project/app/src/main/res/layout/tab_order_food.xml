@@ -8,7 +8,7 @@
     android:background="@drawable/bg_table_diagram">
 
     <ImageView
-        android:id="@+id/imgMenuFood"
+        android:id="@+id/imgEmployManage"
         android:layout_width="73dp"
         android:layout_height="77dp"
         android:layout_marginStart="8dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtManageFoodName"
+        android:id="@+id/txtEmployNameManage"
         android:layout_width="88dp"
         android:layout_height="23dp"
         android:layout_marginStart="8dp"
@@ -34,12 +34,12 @@
         android:text="foodName"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtMenuPayPrice"
-        app:layout_constraintStart_toEndOf="@+id/imgMenuFood"
-        app:layout_constraintTop_toTopOf="@+id/imgMenuFood" />
+        app:layout_constraintBottom_toTopOf="@+id/txtEmployGender"
+        app:layout_constraintStart_toEndOf="@+id/imgEmployManage"
+        app:layout_constraintTop_toTopOf="@+id/imgEmployManage" />
 
     <TextView
-        android:id="@+id/txtMenuPayPrice"
+        android:id="@+id/txtEmployGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -48,12 +48,12 @@
         android:text="12000d"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imgMenuFood"
-        app:layout_constraintStart_toEndOf="@+id/imgMenuFood"
-        app:layout_constraintTop_toBottomOf="@+id/txtManageFoodName" />
+        app:layout_constraintBottom_toBottomOf="@+id/imgEmployManage"
+        app:layout_constraintStart_toEndOf="@+id/imgEmployManage"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmployNameManage" />
 
     <ImageView
-        android:id="@+id/imgbManageDeleteFood"
+        android:id="@+id/imgbAddEmployManage"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginTop="8dp"
@@ -66,7 +66,7 @@
         app:srcCompat="@drawable/ic_add" />
 
     <Button
-        android:id="@+id/imgbManageEditFood"
+        android:id="@+id/imgbEditEmployManage"
         android:layout_width="0dp"
         android:layout_height="0.2dp"
         android:background="#0e0e0e"
@@ -86,7 +86,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/txtFoodNumber"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imgMenuFood"
+        app:layout_constraintStart_toEndOf="@+id/imgEmployManage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.39"
         app:srcCompat="@drawable/ic_minus" />
@@ -101,7 +101,7 @@
         android:text="0"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgbManageDeleteFood"
+        app:layout_constraintEnd_toStartOf="@+id/imgbAddEmployManage"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.42" />
 

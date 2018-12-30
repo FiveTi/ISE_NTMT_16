@@ -37,7 +37,7 @@ public class FoodManagementActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.revFoodManage);
         menuManagementInfoList = new ArrayList<>();
 
-        toolbar = findViewById(R.id.nav_restaurent_menu);
+        toolbar = findViewById(R.id.nav_add_employ_management);
 
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar());

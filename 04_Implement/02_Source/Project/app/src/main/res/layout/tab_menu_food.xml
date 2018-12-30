@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="3dp"
     android:layout_marginBottom="3dp"
     android:layout_marginTop="3dp"
     android:background="@drawable/bg_table_diagram">
 
     <ImageView
-        android:id="@+id/imgMenuFood"
+        android:id="@+id/imgEmployManage"
         android:layout_width="73dp"
         android:layout_height="77dp"
         android:layout_marginStart="8dp"
@@ -35,13 +37,13 @@
         android:text="foodName"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtMenuPayPrice"
-        app:layout_constraintStart_toEndOf="@+id/imgMenuFood"
-        app:layout_constraintTop_toTopOf="@+id/imgMenuFood"
+        app:layout_constraintBottom_toTopOf="@+id/txtEmployGender"
+        app:layout_constraintStart_toEndOf="@+id/imgEmployManage"
+        app:layout_constraintTop_toTopOf="@+id/imgEmployManage"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/txtMenuPayPrice"
+        android:id="@+id/txtEmployGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -50,9 +52,9 @@
         android:text="12000d"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imgMenuFood"
-        app:layout_constraintStart_toEndOf="@+id/imgMenuFood"
-        app:layout_constraintTop_toBottomOf="@+id/txtManageFoodName" />
+        app:layout_constraintBottom_toBottomOf="@+id/imgEmployManage"
+        app:layout_constraintStart_toEndOf="@+id/imgEmployManage"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmployNameManage" />
 
     <ImageView
         android:id="@+id/imgbMenuAddFood"
@@ -65,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.948"
-        app:layout_constraintStart_toEndOf="@+id/txtManageFoodName"
+        app:layout_constraintStart_toEndOf="@+id/txtEmployNameManage"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_add" />
 

@@ -2,12 +2,15 @@ package com.example.admin.restaurantmanagement.EmployManagement;
 
 public class EmployManagementInfo {
     Integer imgEmploy;
-    String employName, birthDate;
+    String employName, phone, email, pass;
+    String url;
+
+    public EmployManagementInfo(){}
 
     public EmployManagementInfo(Integer imgEmploy, String employName, String birthDate) {
         this.imgEmploy = imgEmploy;
         this.employName = employName;
-        this.birthDate = birthDate;
+        this.phone = birthDate;
     }
 
     public Integer getImgEmploy() {
@@ -26,11 +29,35 @@ public class EmployManagementInfo {
         this.employName = employName;
     }
 
-    public String getBirthDate() {
-        return birthDate;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

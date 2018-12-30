@@ -26,7 +26,7 @@ public class RestaurantMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.restaurant_menu_activity);
         InitView();
-        toolbar_menu = findViewById(R.id.nav_restaurent_menu);
+        toolbar_menu = findViewById(R.id.nav_add_employ_management);
         setSupportActionBar(toolbar_menu);
         Objects.requireNonNull(getSupportActionBar());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

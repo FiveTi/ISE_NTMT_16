@@ -1,6 +1,5 @@
 package com.example.admin.restaurantmanagement.RestaurantMenu.Adapter;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -66,9 +65,9 @@ public class FoodMenuAdapter extends RecyclerView.Adapter {
 
         public MyFoodMenuViewHolder(View view) {
             super(view);
-            imgMenuFood = view.findViewById(R.id.imgMenuFood);
+            imgMenuFood = view.findViewById(R.id.imgEmployManage);
             txtMenuNameFood = view.findViewById(R.id.txtMenuFoodName);
-            txtMemuPrice = view.findViewById(R.id.txtMenuPayPrice);
+            txtMemuPrice = view.findViewById(R.id.txtEmployGender);
             imgAddFood = view.findViewById(R.id.imgbMenuAddFood);
         }
     }

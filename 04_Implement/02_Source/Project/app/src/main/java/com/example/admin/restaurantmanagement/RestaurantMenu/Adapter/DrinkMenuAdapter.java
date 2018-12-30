@@ -1,8 +1,6 @@
 package com.example.admin.restaurantmanagement.RestaurantMenu.Adapter;
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.admin.restaurantmanagement.R;
 import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.DrinkMenuFragment;
-import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.FoodMenuFragment;
 import com.example.admin.restaurantmanagement.RestaurantMenu.MenuInfo;
 import com.squareup.picasso.Picasso;
 
@@ -66,9 +63,9 @@ public class DrinkMenuAdapter extends RecyclerView.Adapter{
 
         public MyDrinkMenuViewHolder(View view) {
             super(view);
-            imgMenuFood = view.findViewById(R.id.imgMenuFood);
+            imgMenuFood = view.findViewById(R.id.imgEmployManage);
             txtMenuNameFood = view.findViewById(R.id.txtMenuFoodName);
-            txtMemuPrice = view.findViewById(R.id.txtMenuPayPrice);
+            txtMemuPrice = view.findViewById(R.id.txtEmployGender);
             imgAddFood = view.findViewById(R.id.imgbMenuAddFood);
         }
     }

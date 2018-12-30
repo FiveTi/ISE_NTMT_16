@@ -38,7 +38,7 @@
         app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <TextView
-        android:id="@+id/txtMenuPayPrice"
+        android:id="@+id/txtEmployGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -60,7 +60,7 @@
         android:text="Số lượng"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtMenuPayPrice"
+        app:layout_constraintBottom_toTopOf="@+id/txtEmployGender"
         app:layout_constraintEnd_toStartOf="@+id/txtSumEachFood"
         app:layout_constraintStart_toEndOf="@+id/imgPayFood"
         app:layout_constraintTop_toBottomOf="@+id/txtPayFood" />

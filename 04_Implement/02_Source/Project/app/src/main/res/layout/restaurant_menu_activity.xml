@@ -8,7 +8,7 @@
     android:background="@drawable/bg_app">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/nav_restaurent_menu"
+        android:id="@+id/nav_add_employ_management"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#df8e15"
@@ -40,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nav_restaurent_menu"
+        app:layout_constraintTop_toBottomOf="@+id/nav_add_employ_management"
         app:tabGravity="fill"
         app:tabSelectedTextColor="#df8e15"
         app:tabTextAppearance="@style/TextAppearance.Design.Tab">

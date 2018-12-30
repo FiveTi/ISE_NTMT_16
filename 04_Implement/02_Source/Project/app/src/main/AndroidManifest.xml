@@ -18,6 +18,8 @@
         <activity android:name=".FoodManagement.AddDrinkManagementActivity"></activity>
         <activity android:name=".FoodManagement.FoodManagementActivity"></activity>
         <activity android:name=".EmployManagement.EmployManagementActivity"></activity>
+        <activity android:name=".EmployManagement.AddEmployManagementActivity"></activity>
+
         <activity android:name=".TableManagement.TableManagementActivity"></activity>
         <activity android:name=".Management.ManagementActivity"></activity>
         <activity android:name=".OrderActivity.OrderActivity"></activity>
@@ -27,6 +29,7 @@
         <activity android:name=".TableDiagram.TableDiagramActivity"></activity>
         <activity android:name=".PayFood.PayFoodActivity"></activity>
         <activity android:name=".RestaurantMenu.RestaurantMenuActivity"></activity>
+
 
         <activity android:name=".Login.SplashActivity">>
 

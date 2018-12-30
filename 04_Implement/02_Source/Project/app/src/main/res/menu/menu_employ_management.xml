@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/action_search_employ"
@@ -7,15 +8,9 @@
         android:icon="@drawable/ic_search"
         app:showAsAction="always|collapseActionView"
         android:title="Tìm kiếm" />
-
     <item
-        android:id="@+id/action_add_food_management"
+        android:id="@+id/action_add_employ_management"
         android:icon="@drawable/ic_add_food_management"
-        app:showAsAction="never"
-        android:title="Thêm món ăn" />
-    <item
-        android:id="@+id/action_add_drink_management"
-        android:icon="@drawable/ic_add_food_management"
-        app:showAsAction="never"
-        android:title="Thêm thức uống" />
+        app:showAsAction="always"
+        android:title="Thêm nhân viên" />
 </menu>

@@ -43,12 +43,12 @@ public class EmployManagementAdapter extends Adapter {
         View view = viewHolder.itemView;
         ImageView imgEmploy = view.findViewById(R.id.imgEmployManage);
         TextView txtEmployName = view.findViewById(R.id.txtEmployNameManage);
-        TextView txtDateManage = view.findViewById(R.id.txtDateManage);
+        TextView txtDateManage = view.findViewById(R.id.txtEmployGender);
 
         EmployManagementInfo employManagementInfo = employManagementInfoList.get(i);
         imgEmploy.setImageResource(employManagementInfo.getImgEmploy());
         txtEmployName.setText(employManagementInfo.getEmployName());
-        txtDateManage.setText(employManagementInfo.getBirthDate());
+        txtDateManage.setText(employManagementInfo.getPhone());
 
     }
 

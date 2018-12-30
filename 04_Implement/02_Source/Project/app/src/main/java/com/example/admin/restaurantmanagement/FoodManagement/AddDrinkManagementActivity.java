@@ -65,7 +65,7 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed(); // Implemented by activity
+                onBackPressed();
             }
         });
 
@@ -86,12 +86,12 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
 
 
     private void inItView() {
-        toolbar = findViewById(R.id.nav_restaurent_menu);
+        toolbar = findViewById(R.id.nav_add_employ_management);
         edtDetail = findViewById(R.id.edtDrinkDetail);
         edtDrinkName = findViewById(R.id.edtDrinkName);
         edtDrinkPrice = findViewById(R.id.edtDrinkPrice);
-        btnChoseImage = findViewById(R.id.btnChooseImage);
-        imgDrink = findViewById(R.id.imgbManageDeleteFood);
+        btnChoseImage = findViewById(R.id.btnChooseImageManage);
+        imgDrink = findViewById(R.id.imgbAddEmployManage);
 
     }
 
@@ -117,6 +117,25 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
     }
 
     private void uploadDrink() {
+        String name = edtDrinkName.getText().toString();
+        String price = edtDrinkPrice.getText().toString();
+        String detail = edtDetail.getText().toString();
+
+        if(name.isEmpty()){
+            edtDrinkName.setError("Bạn cần nhập tên");
+            edtDrinkName.requestFocus();
+        }
+
+        if(price.isEmpty()){
+            edtDrinkPrice.setError("Bạn cần nhập giá");
+            edtDrinkPrice.requestFocus();
+        }
+
+        if(detail.isEmpty()){
+            edtDetail.setError("Bạn cần nhập mô tả");
+            edtDetail.requestFocus();
+        }
+
         if (imgUri != null) {
             final ProgressDialog dialog = new ProgressDialog(this);
             dialog.setTitle("Uploading image");
@@ -130,7 +149,7 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     dialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Image uploaded", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Đăng tải thành công", Toast.LENGTH_SHORT).show();
 
                     Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
                     while (!urlTask.isSuccessful());
@@ -144,6 +163,9 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
                     //Save image info into firebase database
                     String uploadId = mDatabaseRef.push().getKey();
                     mDatabaseRef.child(uploadId).setValue(foodManagementInfo);
+                    Intent intent = new Intent(AddDrinkManagementActivity.this, FoodManagementActivity.class);
+                    finish();
+                    startActivity(intent);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -160,7 +182,7 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Toast.makeText(getApplicationContext(), "Please select image", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Vui lòng chọn hình ảnh", Toast.LENGTH_SHORT).show();
         }
     }
 
