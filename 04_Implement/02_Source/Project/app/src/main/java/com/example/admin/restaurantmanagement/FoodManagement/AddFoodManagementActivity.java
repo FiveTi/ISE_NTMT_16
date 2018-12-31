@@ -166,6 +166,8 @@ public class AddFoodManagementActivity extends AppCompatActivity {
 
                     //Save image info into firebase database
                     mDatabaseRef.child(edtFoodName.getText().toString()).setValue(foodManagementInfo);
+
+                    //Finish màn hình hiện tại và chuyển về màn hình quản lý món ăn
                     Intent intent = new Intent(AddFoodManagementActivity.this, FoodManagementActivity.class);
                     finish();
                     startActivity(intent);

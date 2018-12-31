@@ -1,5 +1,6 @@
 package com.example.admin.restaurantmanagement.FoodManagement;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,7 +25,7 @@ public class FoodManagementAdapeter extends RecyclerView.Adapter {
     public static final String FB_DATABASE_FOOD = "Menu/Food";
     ArrayList<MenuManagementInfo> foodManagementInfoList =  new ArrayList<>();
     Context context;
-
+    Activity foodManagementActivity = new FoodManagementActivity();
    public FoodManagementAdapeter(ArrayList<MenuManagementInfo> menuManagementInfoList){
         this.foodManagementInfoList =menuManagementInfoList;
    }
@@ -54,6 +55,7 @@ public class FoodManagementAdapeter extends RecyclerView.Adapter {
                 bEditFood.putSerializable("infoFood", foodManagementInfoList);
                 bEditFood.putInt("position", viewHolder.getAdapterPosition());
                 iEditFood.putExtras(bEditFood);
+                foodManagementActivity.finish();
                 v.getContext().startActivity(iEditFood);
             }
         });

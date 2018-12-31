@@ -210,6 +210,8 @@ public class EditFoodManagementActivity extends AppCompatActivity {
             DatabaseReference myRef = database.getReference(FB_DATABASE_FOOD);
             myRef.child(key).setValue(null);
             myRef.child(edtFoodName.getText().toString()).setValue(foodManagementInfo);
+
+            finish();
             Intent intent = new Intent(EditFoodManagementActivity.this, FoodManagementActivity.class);
             startActivity(intent);
         }

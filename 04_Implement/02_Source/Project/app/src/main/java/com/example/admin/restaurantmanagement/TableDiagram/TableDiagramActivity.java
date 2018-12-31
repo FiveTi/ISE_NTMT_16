@@ -13,14 +13,26 @@ import android.widget.GridView;
 
 import com.example.admin.restaurantmanagement.Login.LoginActivity;
 import com.example.admin.restaurantmanagement.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class TableDiagramActivity extends AppCompatActivity {
-    GridView gvTableDiagram;
+    private GridView gvTableDiagram;
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.table_diagram_activity);
         inItView();
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser() == null){
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+
+        //lấy ra user hiện tại
+        FirebaseUser user = firebaseAuth.getCurrentUser();
 
         TableDiagramAdapter tableDiagramAdapter = new TableDiagramAdapter(this);
         gvTableDiagram.setAdapter(tableDiagramAdapter);
@@ -48,8 +60,9 @@ public class TableDiagramActivity extends AppCompatActivity {
         builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(TableDiagramActivity.this, LoginActivity.class));
             }
         });
         builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
