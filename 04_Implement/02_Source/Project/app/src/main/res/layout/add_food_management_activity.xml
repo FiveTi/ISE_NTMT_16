@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditText
-        android:id="@+id/edtDrinkName"
+        android:id="@+id/edtFoodName"
         android:layout_width="364dp"
         android:height="200dp"
         android:drawableLeft="@drawable/ic_food"
@@ -24,7 +24,7 @@
         android:hint="Tên món ăn"/>
 
     <EditText
-        android:id="@+id/edtDrinkDetail"
+        android:id="@+id/edtFoodDetail"
         android:layout_width="364dp"
         android:height="200dp"
         android:drawableLeft="@drawable/ic_detail"
@@ -43,7 +43,7 @@
         android:hint="Mô tả"/>
 
     <EditText
-        android:id="@+id/edtDrinkPrice"
+        android:id="@+id/edtFoodPrice"
         android:layout_width="364dp"
         android:height="200dp"
         android:drawableLeft="@drawable/ic_price"
@@ -73,10 +73,10 @@
 
 
     <ImageView
-        android:id="@+id/imgAddEmployManage"
+        android:id="@+id/imgAddEmploy"
         android:layout_width="match_parent"
         android:layout_height="262dp"
-        android:layout_below="@+id/edtDrinkDetail"
+        android:layout_below="@+id/edtFoodDetail"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
@@ -89,11 +89,11 @@
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <Button
-        android:id="@+id/btnChooseImageManage"
+        android:id="@+id/btnChooseImageAddFood"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:background="@drawable/bg_table_diagram"
-        android:layout_below="@+id/imgAddEmployManage"
+        android:layout_below="@+id/imgAddEmploy"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-73dp"
         android:text="Chọn ảnh"

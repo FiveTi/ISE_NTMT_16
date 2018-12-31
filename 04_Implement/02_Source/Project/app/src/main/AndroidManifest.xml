@@ -16,6 +16,7 @@
 
         <activity android:name=".FoodManagement.AddFoodManagementActivity"></activity>
         <activity android:name=".FoodManagement.AddDrinkManagementActivity"></activity>
+        <activity android:name=".FoodManagement.EditFoodManagementActivity"></activity>
         <activity android:name=".FoodManagement.FoodManagementActivity"></activity>
         <activity android:name=".EmployManagement.EmployManagementActivity"></activity>
         <activity android:name=".EmployManagement.AddEmployManagementActivity"></activity>

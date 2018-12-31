@@ -21,8 +21,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.admin.restaurantmanagement.FoodManagement.AddFoodManagementActivity;
-import com.example.admin.restaurantmanagement.FoodManagement.FoodManagementActivity;
 import com.example.admin.restaurantmanagement.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -226,7 +224,7 @@ public class AddEmployManagementActivity extends AppCompatActivity {
         edtPass = findViewById(R.id.edt_pass_employ);
         edtPhone = findViewById(R.id.edt_phone_employ);
         edtName = findViewById(R.id.edt_name_employ);
-        btnChooseImage = findViewById(R.id.btnChooseImageManage);
-        imgEmploy = findViewById(R.id.imgAddEmployManage);
+        btnChooseImage = findViewById(R.id.btnChooseImageAddFood);
+        imgEmploy = findViewById(R.id.imgAddEmploy);
     }
 }

@@ -87,11 +87,11 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
 
     private void inItView() {
         toolbar = findViewById(R.id.nav_add_employ_management);
-        edtDetail = findViewById(R.id.edtDrinkDetail);
-        edtDrinkName = findViewById(R.id.edtDrinkName);
-        edtDrinkPrice = findViewById(R.id.edtDrinkPrice);
-        btnChoseImage = findViewById(R.id.btnChooseImageManage);
-        imgDrink = findViewById(R.id.imgAddEmployManage);
+        edtDetail = findViewById(R.id.edtFoodDetail);
+        edtDrinkName = findViewById(R.id.edtFoodName);
+        edtDrinkPrice = findViewById(R.id.edtFoodPrice);
+        btnChoseImage = findViewById(R.id.btnChooseImageAddFood);
+        imgDrink = findViewById(R.id.imgAddEmploy);
 
     }
 

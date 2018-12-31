@@ -47,7 +47,7 @@
         app:layout_constraintBottom_toTopOf="@+id/edt_pass_employ"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnChooseImageManage" />
+        app:layout_constraintTop_toBottomOf="@+id/btnChooseImageAddFood" />
 
 
     <EditText
@@ -84,12 +84,12 @@
         app:layout_constraintTop_toBottomOf="@+id/edt_pass_employ" />
 
     <ImageView
-        android:id="@+id/imgAddEmployManage"
+        android:id="@+id/imgAddEmploy"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnChooseImageManage"
+        app:layout_constraintBottom_toTopOf="@+id/btnChooseImageAddFood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nav_add_employ_management"
@@ -97,10 +97,10 @@
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <Button
-        android:id="@+id/btnChooseImageManage"
+        android:id="@+id/btnChooseImageAddFood"
         android:layout_width="123dp"
         android:layout_height="43dp"
-        android:layout_below="@+id/imgAddEmployManage"
+        android:layout_below="@+id/imgAddEmploy"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -110,6 +110,6 @@
         app:layout_constraintBottom_toTopOf="@+id/edt_email_employ"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgAddEmployManage" />
+        app:layout_constraintTop_toBottomOf="@+id/imgAddEmploy" />
 
 </android.support.constraint.ConstraintLayout>

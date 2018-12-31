@@ -1,6 +1,8 @@
 package com.example.admin.restaurantmanagement.FoodManagement;
 
-public class MenuManagementInfo {
+import java.io.Serializable;
+
+public class MenuManagementInfo implements Serializable {
     Integer imgFood;
     String foodName, price, detail, url, type;
 

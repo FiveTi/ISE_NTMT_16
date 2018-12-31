@@ -35,12 +35,12 @@
         android:text="foodName"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtEmployGender"
+        app:layout_constraintBottom_toTopOf="@+id/txtEmployGenderManage"
         app:layout_constraintStart_toEndOf="@+id/imgEmployManage"
         app:layout_constraintTop_toTopOf="@+id/imgEmployManage" />
 
     <TextView
-        android:id="@+id/txtEmployGender"
+        android:id="@+id/txtEmployGenderManage"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
         android:layout_marginStart="8dp"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtEmployNameManage" />
 
     <ImageView
-        android:id="@+id/imgAddEmployManage"
+        android:id="@+id/imgAddEmploy"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="284dp"
@@ -88,7 +88,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgAddEmployManage"
+        app:layout_constraintStart_toEndOf="@+id/imgAddEmploy"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_edit_black_24dp" />
 

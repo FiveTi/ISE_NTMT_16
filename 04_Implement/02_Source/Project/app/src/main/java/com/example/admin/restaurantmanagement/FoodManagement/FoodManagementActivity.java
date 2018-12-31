@@ -28,7 +28,7 @@ public class FoodManagementActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
     private ProgressDialog progressDialog;
     RecyclerView recyclerView;
-    private List<MenuManagementInfo> menuManagementInfoList;
+    private ArrayList<MenuManagementInfo> menuManagementInfoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

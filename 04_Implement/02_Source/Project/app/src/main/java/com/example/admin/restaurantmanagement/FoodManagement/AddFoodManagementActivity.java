@@ -89,11 +89,11 @@ public class AddFoodManagementActivity extends AppCompatActivity {
 
     private void inItView() {
         toolbar = findViewById(R.id.nav_add_employ_management);
-        edtDetail = findViewById(R.id.edtDrinkDetail);
-        edtFoodName = findViewById(R.id.edtDrinkName);
-        edtFoodPrice = findViewById(R.id.edtDrinkPrice);
-        btnChoseImage = findViewById(R.id.btnChooseImageManage);
-        imgFood = findViewById(R.id.imgAddEmployManage);
+        edtDetail = findViewById(R.id.edtFoodDetail);
+        edtFoodName = findViewById(R.id.edtFoodName);
+        edtFoodPrice = findViewById(R.id.edtFoodPrice);
+        btnChoseImage = findViewById(R.id.btnChooseImageAddFood);
+        imgFood = findViewById(R.id.imgAddEmploy);
     }
 
     @Override
@@ -124,16 +124,19 @@ public class AddFoodManagementActivity extends AppCompatActivity {
         if(name.isEmpty()){
             edtFoodName.setError("Bạn cần nhập tên");
             edtFoodName.requestFocus();
+            return;
         }
 
         if(price.isEmpty()){
             edtFoodPrice.setError("Bạn cần nhập giá");
             edtFoodPrice.requestFocus();
+            return;
         }
 
         if(detail.isEmpty()){
             edtDetail.setError("Bạn cần nhập mô tả");
             edtDetail.requestFocus();
+            return;
         }
 
         if (imgUri != null) {
@@ -162,8 +165,7 @@ public class AddFoodManagementActivity extends AppCompatActivity {
                             downloadUrl.toString());
 
                     //Save image info into firebase database
-                    String uploadId = mDatabaseRef.push().getKey();
-                    mDatabaseRef.child(uploadId).setValue(foodManagementInfo);
+                    mDatabaseRef.child(edtFoodName.getText().toString()).setValue(foodManagementInfo);
                     Intent intent = new Intent(AddFoodManagementActivity.this, FoodManagementActivity.class);
                     finish();
                     startActivity(intent);
