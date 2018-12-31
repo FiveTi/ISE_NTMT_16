@@ -15,12 +15,6 @@ public class EmployManagementInfo {
         this.url = url;
     }
 
-    public EmployManagementInfo(Integer imgEmploy, String employName, String birthDate) {
-        this.imgEmploy = imgEmploy;
-        this.employName = employName;
-        this.phone = birthDate;
-    }
-
     public Integer getImgEmploy() {
         return imgEmploy;
     }

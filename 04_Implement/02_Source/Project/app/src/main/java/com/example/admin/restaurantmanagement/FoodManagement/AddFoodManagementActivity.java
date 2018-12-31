@@ -93,7 +93,7 @@ public class AddFoodManagementActivity extends AppCompatActivity {
         edtFoodName = findViewById(R.id.edtFoodName);
         edtFoodPrice = findViewById(R.id.edtFoodPrice);
         btnChoseImage = findViewById(R.id.btnChooseImageAddFood);
-        imgFood = findViewById(R.id.imgAddEmploy);
+        imgFood = findViewById(R.id.imgAddFoodOrder);
     }
 
     @Override

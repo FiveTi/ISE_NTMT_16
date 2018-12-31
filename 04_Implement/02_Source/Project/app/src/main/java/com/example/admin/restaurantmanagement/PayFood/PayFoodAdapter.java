@@ -87,7 +87,7 @@ public class PayFoodAdapter extends RecyclerView.Adapter {
             txtFoodName = view.findViewById(R.id.txtPayFood);
             txtSumEachFood = view.findViewById(R.id.txtSumEachFood);
             txtCount = view.findViewById(R.id.txtFoodNumber);
-            txtPrice = view.findViewById(R.id.txtEmployGenderManage);
+            txtPrice = view.findViewById(R.id.txtOrderFoodPrice);
 
         }
     }

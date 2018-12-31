@@ -142,7 +142,7 @@ public class AddEmployManagementActivity extends AppCompatActivity {
             return;
         }
 
-        if (phone.length()!=10) {
+        if (phone.length() != 10) {
             edtPhone.setError("Số điện thoại phải có 10 số");
             edtPhone.requestFocus();
             return;
@@ -184,8 +184,8 @@ public class AddEmployManagementActivity extends AppCompatActivity {
                                 while (!urlTask.isSuccessful()) ;
                                 Uri downloadUrl = urlTask.getResult();
 
-                                EmployManagementInfo employManagementInfo = new EmployManagementInfo(email, pass,
-                                        name, phone, downloadUrl.toString());
+                                EmployManagementInfo employManagementInfo = new EmployManagementInfo(name, phone, email, pass,
+                                        downloadUrl.toString());
 
                                 //Upload lên database
                                 String uploadId = firebaseDatabaseRef.push().getKey();
@@ -225,6 +225,6 @@ public class AddEmployManagementActivity extends AppCompatActivity {
         edtPhone = findViewById(R.id.edt_phone_employ);
         edtName = findViewById(R.id.edt_name_employ);
         btnChooseImage = findViewById(R.id.btnChooseImageAddFood);
-        imgEmploy = findViewById(R.id.imgAddEmploy);
+        imgEmploy = findViewById(R.id.imgAddFoodOrder);
     }
 }

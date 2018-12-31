@@ -1,8 +1,10 @@
 package com.example.admin.restaurantmanagement.EmployManagement;
 
+import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,18 +18,31 @@ import android.widget.Toast;
 
 import com.example.admin.restaurantmanagement.FoodManagement.AddDrinkManagementActivity;
 import com.example.admin.restaurantmanagement.FoodManagement.AddFoodManagementActivity;
+import com.example.admin.restaurantmanagement.FoodManagement.FoodManagementActivity;
+import com.example.admin.restaurantmanagement.FoodManagement.MenuManagementInfo;
 import com.example.admin.restaurantmanagement.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class EmployManagementActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView recyclerViewEmploy;
+    private ProgressDialog progressDialog;
+    private DatabaseReference databaseReference;
+    private ArrayList<EmployManagementInfo> employManagementInfoArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.management_employ_activity);
         inItView();
+        employManagementInfoArrayList = new ArrayList<>();
+
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -39,9 +54,33 @@ public class EmployManagementActivity extends AppCompatActivity {
             }
         });
 
-        EmployManagementAdapter employManagementAdapter  =new EmployManagementAdapter();
+        databaseReference = FirebaseDatabase.getInstance().getReference(AddEmployManagementActivity.FB_DATABASE_EMPLOY);
+        progressDialog = new ProgressDialog(EmployManagementActivity.this);
+        progressDialog.setMessage("Vui lòng chờ giây lát...");
+        progressDialog.show();
+
+        final EmployManagementAdapter employManagementAdapter  = new EmployManagementAdapter(employManagementInfoArrayList);
         recyclerViewEmploy.setAdapter(employManagementAdapter);
         recyclerViewEmploy.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                progressDialog.dismiss();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    //ImageUpload class require default constructor
+                    EmployManagementInfo employManagementInfo = snapshot.getValue(EmployManagementInfo.class);
+                    employManagementInfoArrayList.add(employManagementInfo);
+                }
+                employManagementAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                progressDialog.dismiss();
+            }
+        });
     }
 
     @Override

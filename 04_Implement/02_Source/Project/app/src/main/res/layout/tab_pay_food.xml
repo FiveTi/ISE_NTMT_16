@@ -23,7 +23,7 @@
 
     <TextView
         android:id="@+id/txtPayFood"
-        android:layout_width="109dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:gravity="left"
@@ -38,7 +38,7 @@
         app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <TextView
-        android:id="@+id/txtEmployGenderManage"
+        android:id="@+id/txtOrderFoodPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -60,14 +60,14 @@
         android:text="Số lượng"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtEmployGenderManage"
+        app:layout_constraintBottom_toTopOf="@+id/txtOrderFoodPrice"
         app:layout_constraintEnd_toStartOf="@+id/txtSumEachFood"
         app:layout_constraintStart_toEndOf="@+id/imgPayFood"
         app:layout_constraintTop_toBottomOf="@+id/txtPayFood" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="51dp"
+        android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"

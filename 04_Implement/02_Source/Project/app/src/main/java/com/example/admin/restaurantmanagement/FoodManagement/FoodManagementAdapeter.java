@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.admin.restaurantmanagement.Login.LoginActivity;
 import com.example.admin.restaurantmanagement.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -41,11 +40,11 @@ public class FoodManagementAdapeter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, int i) {
         View view = viewHolder.itemView;
-        ImageView imgFood = (ImageView) view.findViewById(R.id.imgEmployManage);
-        TextView txtFoodName = (TextView) view.findViewById(R.id.txtEmployNameManage);
-        TextView txtPrice = (TextView) view.findViewById(R.id.txtEmployGenderManage);
-        ImageView imgEdit = (ImageView) view.findViewById(R.id.imgbEditEmployManage);
-        ImageView imgDelete = (ImageView) view.findViewById(R.id.imgAddEmploy);
+        ImageView imgFood = (ImageView) view.findViewById(R.id.imgOrderFood);
+        TextView txtFoodName = (TextView) view.findViewById(R.id.txtOrderFoodName);
+        TextView txtPrice = (TextView) view.findViewById(R.id.txtOrderFoodPrice);
+        ImageView imgEdit = (ImageView) view.findViewById(R.id.imgBottom);
+        ImageView imgDelete = (ImageView) view.findViewById(R.id.imgAddFoodOrder);
 
         imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override

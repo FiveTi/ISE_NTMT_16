@@ -63,9 +63,9 @@ public class DrinkMenuAdapter extends RecyclerView.Adapter{
 
         public MyDrinkMenuViewHolder(View view) {
             super(view);
-            imgMenuFood = view.findViewById(R.id.imgEmployManage);
+            imgMenuFood = view.findViewById(R.id.imgOrderFood);
             txtMenuNameFood = view.findViewById(R.id.txtMenuFoodName);
-            txtMemuPrice = view.findViewById(R.id.txtEmployGenderManage);
+            txtMemuPrice = view.findViewById(R.id.txtOrderFoodPrice);
             imgAddFood = view.findViewById(R.id.imgbMenuAddFood);
         }
     }

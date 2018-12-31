@@ -109,7 +109,7 @@ public class EditFoodManagementActivity extends AppCompatActivity {
         edtFoodName = findViewById(R.id.edtFoodName);
         edtFoodPrice = findViewById(R.id.edtFoodPrice);
         btnChoseImage = findViewById(R.id.btnChooseImageAddFood);
-        imgFood = findViewById(R.id.imgAddEmploy);
+        imgFood = findViewById(R.id.imgAddFoodOrder);
     }
 
     @Override
@@ -121,7 +121,7 @@ public class EditFoodManagementActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_save) {
-            uploadFood();
+            editFood();
         }
 
         return true;
@@ -133,7 +133,7 @@ public class EditFoodManagementActivity extends AppCompatActivity {
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
 
-    private void uploadFood() {
+    private void editFood() {
         String name = edtFoodName.getText().toString();
         String price = edtFoodPrice.getText().toString();
         String detail = edtDetail.getText().toString();

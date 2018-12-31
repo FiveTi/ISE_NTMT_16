@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.admin.restaurantmanagement.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +20,8 @@ public class EmployManagementAdapter extends Adapter {
     List<EmployManagementInfo> employManagementInfoList = new ArrayList<>();
     Context context;
 
-    String employName[] = {"Nguyen Van A", "Nguyen Van B", "Nguyen Van AB", "Nguyen Van AC", "Nguyen Van Milan", "Nguyen Van MU", "Nguyen Van AQ", "Nguyen Van"};
-    String employDate[] = {"Nhan vien 01", "Bo", "Pho", "Heo", "Gà", "Vịt", "De", "Cừu"};
-    Integer employImage[] = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5, R.drawable.food6, R.drawable.food7, R.drawable.food8};
-
-    public EmployManagementAdapter(){
-        for(int i=0;i<employName.length;i++){
-            EmployManagementInfo employManagementInfo= new EmployManagementInfo(employImage[i],employName[i],employDate[i]);
-            employManagementInfoList.add(employManagementInfo);
-        }
+    public EmployManagementAdapter(ArrayList<EmployManagementInfo> employManagementInfoList){
+        this.employManagementInfoList=employManagementInfoList;
     }
 
     @NonNull
@@ -41,20 +35,22 @@ public class EmployManagementAdapter extends Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         View view = viewHolder.itemView;
-        ImageView imgEmploy = view.findViewById(R.id.imgEmployManage);
-        TextView txtEmployName = view.findViewById(R.id.txtEmployNameManage);
-        TextView txtDateManage = view.findViewById(R.id.txtEmployGenderManage);
+        ImageView imgEmploy = view.findViewById(R.id.imgEmploy);
+        TextView txtEmployName = view.findViewById(R.id.txtEmployName);
+        TextView txtEmployPhone = view.findViewById(R.id.txtEmployPhone);
 
         EmployManagementInfo employManagementInfo = employManagementInfoList.get(i);
-        imgEmploy.setImageResource(employManagementInfo.getImgEmploy());
+
+
         txtEmployName.setText(employManagementInfo.getEmployName());
-        txtDateManage.setText(employManagementInfo.getPhone());
+        txtEmployPhone.setText(employManagementInfo.getPhone());
+        Picasso.get().load(employManagementInfo.getUrl()).into(imgEmploy);
 
     }
 
     @Override
     public int getItemCount() {
-        return employImage.length;
+        return employManagementInfoList.size();
     }
 
     private class MyEmployViewHolder extends RecyclerView.ViewHolder {
