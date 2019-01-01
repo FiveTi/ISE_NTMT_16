@@ -72,14 +72,13 @@ public class DrinkMenuFragment extends Fragment {
     }
 
     public void showDetail() {
-//        Fragment myFragment=new OrderFragment();
-//        RestaurantMenuActivity appCompatActivity = (RestaurantMenuActivity) getActivity();
-//        appCompatActivity.getSupportFragmentManager()
-//                .beginTransaction()
-//                .add(R.id.container, myFragment)
-//                .addToBackStack(null)
-//                .commit();
-        Intent intent = new Intent(getActivity(), OrderActivity.class);
-        startActivity(intent);
+        Fragment myFragment=new OrderFragment();
+        RestaurantMenuActivity appCompatActivity = (RestaurantMenuActivity) getActivity();
+        appCompatActivity.getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.container, myFragment)
+                .addToBackStack(null)
+                .commit();
+
     }
 }

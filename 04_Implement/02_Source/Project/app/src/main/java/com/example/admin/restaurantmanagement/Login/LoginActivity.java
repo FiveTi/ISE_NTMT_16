@@ -97,5 +97,9 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
     }
 
-
+    //Fix lỗi nhấn back từ màn hình login quay lại trang trước đó
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 }
