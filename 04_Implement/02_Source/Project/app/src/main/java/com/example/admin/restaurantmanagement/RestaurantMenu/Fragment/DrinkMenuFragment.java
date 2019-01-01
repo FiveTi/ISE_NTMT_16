@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DrinkMenuFragment extends Fragment {
-    private List<MenuInfo> menuInfoList = new ArrayList<>();
+    private ArrayList<MenuInfo> menuInfoList = new ArrayList<>();
     RecyclerView revFoodMenu;
     private DatabaseReference mDatabaseRef;
     private ProgressDialog progressDialog;

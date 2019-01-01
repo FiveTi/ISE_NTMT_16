@@ -1,15 +1,25 @@
 package com.example.admin.restaurantmanagement.RestaurantMenu;
 
-public class MenuInfo {
-    Integer imgFood;
-    String foodName, price, detail, url;
+import java.io.Serializable;
 
-    public MenuInfo(){}
+public class MenuInfo implements Serializable {
+    Integer imgFood;
+    String foodName, price, detail, url, type;
+
+    public MenuInfo() {
+    }
 
     public MenuInfo(Integer imgFood, String foodName, String price) {
         this.imgFood = imgFood;
         this.foodName = foodName;
         this.price = price;
+    }
+
+    public MenuInfo(Integer imgFood, String foodName, String price, String type) {
+        this.imgFood = imgFood;
+        this.foodName = foodName;
+        this.price = price;
+        this.type = type;
     }
 
     public Integer getImgFood() {

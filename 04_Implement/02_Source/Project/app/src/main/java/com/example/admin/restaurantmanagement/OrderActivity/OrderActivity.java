@@ -9,31 +9,53 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.admin.restaurantmanagement.FoodManagement.MenuManagementInfo;
 import com.example.admin.restaurantmanagement.R;
 import com.example.admin.restaurantmanagement.RestaurantMenu.Adapter.FoodMenuAdapter;
 import com.example.admin.restaurantmanagement.RestaurantMenu.MenuInfo;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderActivity extends AppCompatActivity {
-    List<MenuInfo> menuInfoList = new ArrayList<>();
-    ImageView imgOrderFoodInfo, imgAdd, imgMinus;
-    TextView txtOrderFoodName, txtOrderFoodDetail,txtNumOrderFood;
+    private StorageReference mStorageRef;
+    private DatabaseReference mDatabaseRef;
+
+    ImageView imgOrderFoodInfo, imgAdd, imgMinus, imgClose;
+    TextView txtOrderFoodName, txtOrderFoodDetail, txtNumOrderFood;
     Button btnOrderFoodPrice;
-    String orderPrice = "100000";
-    Bundle foodBundle =new Bundle();
-    private  String FOOD_MENU = "FOOD MENU";
-    Integer posFood;
+
+    public static final int REQUEST_CHOOSE_IMAGE = 1234;
+    public static final String FB_STORAGE_FOOD = "Food/";
+    public static final String FB_STORAGE_DRINK = "Drink/";
+    public static final String FB_DATABASE_FOOD = "Menu/Food";
+    public static final String FB_DATABASE_DRINK = "Menu/Drink";
+    public int posFood;
+    public int type; // 0 là đồ ăn, 1 là thức uống
+    public String key;
+    String orderPrice = "0";
+
+    ArrayList<MenuInfo> food;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.order_activity);
-
-        getBundleFromMenu();
         inItView();
+        Bundle foodBundle = null;
+        getBundleFromMenu(foodBundle);
 
+        txtOrderFoodName.setText(food.get(posFood).getFoodName());
+        txtOrderFoodDetail.setText(food.get(posFood).getDetail());
+        btnOrderFoodPrice.setText(food.get(posFood).getPrice());
+        Picasso.get().load(food.get(posFood).getUrl()).into(imgOrderFoodInfo);
+
+        orderPrice = food.get(posFood).getPrice();
 
         imgMinus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,27 +70,41 @@ public class OrderActivity extends AppCompatActivity {
                 addFood();
             }
         });
+
+        imgClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void inItView() {
-        imgAdd =findViewById(R.id.imgAdd);
+        imgClose=findViewById(R.id.imgCloseOrder);
+        imgAdd = findViewById(R.id.imgAdd);
         imgMinus = findViewById(R.id.imgMinus);
         imgOrderFoodInfo = findViewById(R.id.imgOrderFoodInfo);
         btnOrderFoodPrice = findViewById(R.id.btnOrderFoodPrice);
         txtOrderFoodName = findViewById(R.id.txtOrderFoodName);
         txtOrderFoodDetail = findViewById(R.id.txtOrderFoodDetail);
         txtNumOrderFood = findViewById(R.id.txtNumOrderFood);
-
-        Picasso.get().load(menuInfoList.get(posFood).getUrl()).into(imgOrderFoodInfo);
-        txtNumOrderFood.setText(menuInfoList.get(posFood).getFoodName());
-        txtOrderFoodDetail.setText(menuInfoList.get(posFood).getDetail());
-        btnOrderFoodPrice.setText(menuInfoList.get(posFood).getPrice());
     }
 
-    private void getBundleFromMenu() {
+    private void getBundleFromMenu(Bundle foodBundle) {
         foodBundle = this.getIntent().getExtras();
-        menuInfoList = (ArrayList<MenuInfo>) foodBundle.getSerializable(FOOD_MENU);
-        posFood = foodBundle.getInt("posFood");
+        posFood = foodBundle.getInt("position");
+        type = foodBundle.getInt("type");
+        if (type == 0) {
+            mStorageRef = FirebaseStorage.getInstance().getReference(FB_STORAGE_FOOD);
+            mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_FOOD);
+        } else {
+            mStorageRef = FirebaseStorage.getInstance().getReference(FB_STORAGE_DRINK);
+            mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_DRINK);
+        }
+
+        food = (ArrayList<MenuInfo>) foodBundle.getSerializable("infoFood");
+
+        key = food.get(posFood).getFoodName();
     }
 
     private void minusFood() {
@@ -76,7 +112,7 @@ public class OrderActivity extends AppCompatActivity {
         if (temp == 1) return;
         else {
             txtNumOrderFood.setText(String.valueOf(temp - 1));
-            int res = Integer.parseInt(String.valueOf(temp - 1)) *  Integer.parseInt(orderPrice);
+            int res = Integer.parseInt(String.valueOf(temp - 1)) * Integer.parseInt(orderPrice);
             btnOrderFoodPrice.setText("+ " + String.valueOf(res) + "d");
         }
     }
@@ -84,7 +120,7 @@ public class OrderActivity extends AppCompatActivity {
     private void addFood() {
         int temp = Integer.parseInt(txtNumOrderFood.getText().toString());
         txtNumOrderFood.setText(String.valueOf(temp + 1));
-        int res = Integer.parseInt(String.valueOf(temp + 1)) *  Integer.parseInt(orderPrice);
+        int res = Integer.parseInt(String.valueOf(temp + 1)) * Integer.parseInt(orderPrice);
         btnOrderFoodPrice.setText("+ " + String.valueOf(res) + "d");
     }
 

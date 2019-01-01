@@ -30,7 +30,7 @@ import java.util.List;
 
 public class FoodMenuFragment extends Fragment {
     public String FB_DATABASE_FOOD = "Menu/Food";
-    private List<MenuInfo> menuInfoList = new ArrayList<>();
+    private ArrayList<MenuInfo> menuInfoList = new ArrayList<>();
     RecyclerView revFoodMenu;
     private DatabaseReference mDatabaseRef;
     private ProgressDialog progressDialog;
