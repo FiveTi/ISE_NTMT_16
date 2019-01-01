@@ -52,7 +52,7 @@ public class OrderActivity extends AppCompatActivity {
 
         txtOrderFoodName.setText(food.get(posFood).getFoodName());
         txtOrderFoodDetail.setText(food.get(posFood).getDetail());
-        btnOrderFoodPrice.setText(food.get(posFood).getPrice());
+        btnOrderFoodPrice.setText(food.get(posFood).getPrice()+"d");
         Picasso.get().load(food.get(posFood).getUrl()).into(imgOrderFoodInfo);
 
         orderPrice = food.get(posFood).getPrice();
