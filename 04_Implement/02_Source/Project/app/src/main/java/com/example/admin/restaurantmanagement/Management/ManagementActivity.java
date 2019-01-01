@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.admin.restaurantmanagement.EmployManagement.EmployManagementActivity;
-import com.example.admin.restaurantmanagement.FoodManagement.FoodManagementActivity;
+import com.example.admin.restaurantmanagement.FoodManagement.MenuManagementActivity;
 import com.example.admin.restaurantmanagement.Login.LoginActivity;
 import com.example.admin.restaurantmanagement.R;
 import com.example.admin.restaurantmanagement.TableManagement.TableManagementActivity;
@@ -28,7 +28,7 @@ public class ManagementActivity extends AppCompatActivity {
         btnManageFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ManagementActivity.this, FoodManagementActivity.class);
+                Intent intent = new Intent(ManagementActivity.this, MenuManagementActivity.class);
                 startActivity(intent);
             }
         });

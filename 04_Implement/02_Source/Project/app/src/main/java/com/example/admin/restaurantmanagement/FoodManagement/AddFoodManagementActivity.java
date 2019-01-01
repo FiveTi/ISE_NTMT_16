@@ -168,7 +168,7 @@ public class AddFoodManagementActivity extends AppCompatActivity {
                     mDatabaseRef.child(edtFoodName.getText().toString()).setValue(foodManagementInfo);
 
                     //Finish màn hình hiện tại và chuyển về màn hình quản lý món ăn
-                    Intent intent = new Intent(AddFoodManagementActivity.this, FoodManagementActivity.class);
+                    Intent intent = new Intent(AddFoodManagementActivity.this, MenuManagementActivity.class);
                     finish();
                     startActivity(intent);
                 }

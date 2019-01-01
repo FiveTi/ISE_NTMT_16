@@ -14,12 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.example.admin.restaurantmanagement.FoodManagement.AddDrinkManagementActivity;
-import com.example.admin.restaurantmanagement.FoodManagement.AddFoodManagementActivity;
-import com.example.admin.restaurantmanagement.FoodManagement.FoodManagementActivity;
-import com.example.admin.restaurantmanagement.FoodManagement.MenuManagementInfo;
 import com.example.admin.restaurantmanagement.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FoodMenuFragment extends Fragment {
+    public String FB_DATABASE_FOOD = "Menu/Food";
     private List<MenuInfo> menuInfoList = new ArrayList<>();
     RecyclerView revFoodMenu;
     private DatabaseReference mDatabaseRef;
@@ -43,7 +44,7 @@ public class FoodMenuFragment extends Fragment {
         progressDialog.setMessage("Vui lòng chờ giây lát...");
         progressDialog.show();
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference(AddFoodManagementActivity.FB_DATABASE_FOOD);
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_FOOD);
 
         final FoodMenuAdapter foodMenuAdapter = new FoodMenuAdapter(menuInfoList, this);
         revFoodMenu.setAdapter(foodMenuAdapter);

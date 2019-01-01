@@ -39,7 +39,6 @@ public class RestaurantMenuActivity extends AppCompatActivity {
             }
         });
 
-
         tabLayoutMenu.setupWithViewPager(viewPagerMenu);
         FragmentManager fragmentManager = getSupportFragmentManager();
         MenuAdapter menuAdapter = new MenuAdapter(fragmentManager);

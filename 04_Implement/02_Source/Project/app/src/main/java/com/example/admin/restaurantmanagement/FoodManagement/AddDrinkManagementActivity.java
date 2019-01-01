@@ -163,7 +163,7 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
                     //Save image info into firebase database
                     String uploadId = mDatabaseRef.push().getKey();
                     mDatabaseRef.child(uploadId).setValue(foodManagementInfo);
-                    Intent intent = new Intent(AddDrinkManagementActivity.this, FoodManagementActivity.class);
+                    Intent intent = new Intent(AddDrinkManagementActivity.this, MenuManagementActivity.class);
                     finish();
                     startActivity(intent);
                 }

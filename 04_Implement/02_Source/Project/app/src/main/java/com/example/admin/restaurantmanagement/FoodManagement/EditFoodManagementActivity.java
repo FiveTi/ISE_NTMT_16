@@ -52,6 +52,7 @@ public class EditFoodManagementActivity extends AppCompatActivity {
     public static final String FB_DATABASE_FOOD = "Menu/Food";
     public static final String FB_DATABASE_DRINK = "Menu/Drink";
     public int position;
+    public int type; // 0 là đồ ăn, 1 là thức uống
     public String key;
     ArrayList<MenuManagementInfo> food;
 
@@ -64,8 +65,6 @@ public class EditFoodManagementActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        mStorageRef = FirebaseStorage.getInstance().getReference(FB_STORAGE_FOOD);
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_FOOD);
         toolbar.setTitle("Sửa thông tin món ăn");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +75,15 @@ public class EditFoodManagementActivity extends AppCompatActivity {
 
         Bundle bundle = this.getIntent().getExtras();
         position = bundle.getInt("position");
+        type = bundle.getInt("type");
+        if(type == 0) {
+            mStorageRef = FirebaseStorage.getInstance().getReference(FB_STORAGE_FOOD);
+            mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_FOOD);
+        }
+        else{
+            mStorageRef = FirebaseStorage.getInstance().getReference(FB_STORAGE_DRINK);
+            mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_DRINK);
+        }
 
         food = (ArrayList<MenuManagementInfo>) bundle.getSerializable("infoFood");
 
@@ -182,7 +190,8 @@ public class EditFoodManagementActivity extends AppCompatActivity {
 
                     //Save image info into firebase database
                     mDatabaseRef.child(key).setValue(foodManagementInfo);
-                    Intent intent = new Intent(EditFoodManagementActivity.this, FoodManagementActivity.class);
+                    Intent intent = new Intent(EditFoodManagementActivity.this, MenuManagementActivity.class);
+                    finish();
                     startActivity(intent);
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -205,14 +214,13 @@ public class EditFoodManagementActivity extends AppCompatActivity {
                     edtDetail.getText().toString(),
                     food.get(position).getUrl().toString());
 
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            //Kết nối tới node có tên là contacts (node này do ta định nghĩa trong CSDL Firebase)
-            DatabaseReference myRef = database.getReference(FB_DATABASE_FOOD);
-            myRef.child(key).setValue(null);
-            myRef.child(edtFoodName.getText().toString()).setValue(foodManagementInfo);
+            mDatabaseRef.child(key).setValue(null);
+            mDatabaseRef.child(edtFoodName.getText().toString()).setValue(foodManagementInfo);
 
             finish();
-            Intent intent = new Intent(EditFoodManagementActivity.this, FoodManagementActivity.class);
+            FoodManagementAdapter.foodManagementFragment.getActivity().finish();
+            DrinkManagementAdapter.drinkManagementFragment.getActivity().finish();
+            Intent intent = new Intent(EditFoodManagementActivity.this, MenuManagementActivity.class);
             startActivity(intent);
         }
     }

@@ -5,20 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FoodManagement.FoodManagementActivity">
-
-    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/nav_add_employ_management"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#df8e15"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:title="Food management"
-        app:layout_constraintBottom_toTopOf="@+id/revMenuFood"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></android.support.v7.widget.Toolbar>
-
+    tools:context=".FoodManagement.MenuManagementActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/revFoodManage"
@@ -28,5 +15,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nav_add_employ_management" />
+        app:layout_constraintTop_toTopOf="parent"/>
 </android.support.constraint.ConstraintLayout>
