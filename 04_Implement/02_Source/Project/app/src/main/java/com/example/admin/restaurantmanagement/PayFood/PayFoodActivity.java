@@ -10,11 +10,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.admin.restaurantmanagement.R;
 import com.example.admin.restaurantmanagement.TableDiagram.TableDiagramActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class PayFoodActivity extends AppCompatActivity {
+    private DatabaseReference mData;
+
     Button btnPay;
     RecyclerView recyclerView;
     TextView txtPaySumPrice;
@@ -35,6 +40,8 @@ public class PayFoodActivity extends AppCompatActivity {
                 payFood();
             }
         });
+
+        mData=FirebaseDatabase.getInstance().getReference();
     }
 
 
@@ -44,6 +51,12 @@ public class PayFoodActivity extends AppCompatActivity {
         builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
+                mData.child("Table/tb01/ListOder/").setValue(null);
+
+                Toast.makeText(getApplicationContext(),"Thanh toán thành công",Toast.LENGTH_SHORT).show();
+
+                mData.child("Table/tb01/name").setValue("tb01");
 
                 Intent intent = new Intent(PayFoodActivity.this, TableDiagramActivity.class);
                 startActivity(intent);

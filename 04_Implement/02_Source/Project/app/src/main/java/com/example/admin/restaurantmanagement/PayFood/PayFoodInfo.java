@@ -4,6 +4,9 @@ public class PayFoodInfo {
     String foodName, price, count, sum;
     Integer imgFood;
 
+    public PayFoodInfo() {
+    }
+
     public PayFoodInfo(String foodName, String price, String count, Integer imgFood) {
         this.foodName = foodName;
         this.price = price;

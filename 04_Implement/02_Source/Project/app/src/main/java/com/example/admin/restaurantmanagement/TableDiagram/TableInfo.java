@@ -1,8 +1,13 @@
 package com.example.admin.restaurantmanagement.TableDiagram;
 
-public class TableInfo {
+import java.io.Serializable;
+
+public class TableInfo implements Serializable {
     String tableName;
     boolean selected;
+
+    public TableInfo() {
+    }
 
     public TableInfo(String tableName, boolean selected) {
         this.tableName = tableName;
