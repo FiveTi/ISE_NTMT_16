@@ -5,6 +5,16 @@ public class EmployManagementInfo {
     String employName, phone, email, pass;
     String url;
 
+    public String getKeyID() {
+        return keyID;
+    }
+
+    public void setKeyID(String keyID) {
+        this.keyID = keyID;
+    }
+
+    String keyID;
+
     public EmployManagementInfo(){}
 
     public EmployManagementInfo(String employName, String phone, String email, String pass, String url) {
@@ -13,6 +23,15 @@ public class EmployManagementInfo {
         this.email = email;
         this.pass = pass;
         this.url = url;
+    }
+
+    public EmployManagementInfo(String employName, String phone, String email, String pass, String url, String keyID) {
+        this.employName = employName;
+        this.phone = phone;
+        this.email = email;
+        this.pass = pass;
+        this.url = url;
+        this.keyID = keyID;
     }
 
     public Integer getImgEmploy() {

@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,10 +27,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -184,11 +191,12 @@ public class AddEmployManagementActivity extends AppCompatActivity {
                                 while (!urlTask.isSuccessful()) ;
                                 Uri downloadUrl = urlTask.getResult();
 
-                                EmployManagementInfo employManagementInfo = new EmployManagementInfo(name, phone, email, pass,
-                                        downloadUrl.toString());
+
 
                                 //Upload lên database
                                 String uploadId = firebaseDatabaseRef.push().getKey();
+                                EmployManagementInfo employManagementInfo = new EmployManagementInfo(name, phone, email, pass,
+                                        downloadUrl.toString(), uploadId);
                                 firebaseDatabaseRef.child(uploadId).setValue(employManagementInfo);
 
                                 Intent intent = new Intent(AddEmployManagementActivity.this, EmployManagementActivity.class);
@@ -216,6 +224,35 @@ public class AddEmployManagementActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void DeleteEmployee(final EmployManagementInfo employee)
+    {
+        final String userEmail = employee.getEmail();
+        String userPassword = employee.getPass();
+
+        //Xóa user khỏi firebaseDatabaseRef
+
+       // firebaseDatabaseRef.child(FB_DATABASE_EMPLOY).child(employee.getEmployName()).setValue(null);
+
+//
+//        //Xóa user khỏi firebaseAuth
+//        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+//        AuthCredential authCredential = EmailAuthProvider.getCredential(userEmail, userPassword);
+//
+//        firebaseUser.reauthenticate(authCredential).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                firebaseUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Toast.makeText(getApplicationContext(), "User account deleted!", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+//            }
+//        });
     }
 
     private void inItView() {
