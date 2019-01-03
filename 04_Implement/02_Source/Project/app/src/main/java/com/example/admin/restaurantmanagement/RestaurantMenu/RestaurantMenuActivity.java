@@ -54,6 +54,7 @@ public class RestaurantMenuActivity extends AppCompatActivity {
     }
 
     private void viewCart() {
+        finish();
         Intent intent = new Intent(RestaurantMenuActivity.this, PayFoodActivity.class);
         startActivity(intent);
     }

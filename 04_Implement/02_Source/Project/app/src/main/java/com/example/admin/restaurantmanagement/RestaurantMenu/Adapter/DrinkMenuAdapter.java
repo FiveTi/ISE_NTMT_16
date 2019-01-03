@@ -1,5 +1,7 @@
 package com.example.admin.restaurantmanagement.RestaurantMenu.Adapter;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +16,7 @@ import com.example.admin.restaurantmanagement.OrderActivity.OrderActivity;
 import com.example.admin.restaurantmanagement.R;
 import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.DrinkMenuFragment;
 import com.example.admin.restaurantmanagement.RestaurantMenu.MenuInfo;
+import com.example.admin.restaurantmanagement.RestaurantMenu.RestaurantMenuActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -22,6 +25,7 @@ import java.util.List;
 public class DrinkMenuAdapter extends RecyclerView.Adapter{
     ArrayList<MenuInfo> menuDrinkList;
     DrinkMenuFragment drinkMenuFragment;
+
     public DrinkMenuAdapter(ArrayList<MenuInfo> menuInfos, DrinkMenuFragment drinkMenuFragment) {
         this.menuDrinkList = menuInfos;
         this.drinkMenuFragment =drinkMenuFragment;
@@ -50,15 +54,14 @@ public class DrinkMenuAdapter extends RecyclerView.Adapter{
         myFoodMenuViewHolder.imgAddFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //.showDetail();
-                Intent iEditFood= new Intent(v.getContext(), OrderActivity.class);
-                Bundle bEditFood = new Bundle();
-                bEditFood.putSerializable("infoFood", menuDrinkList);
-                bEditFood.putInt("position", viewHolder.getAdapterPosition());
-                bEditFood.putInt("type", 0);
-                iEditFood.putExtras(bEditFood);
-                //foodManagementFragment.getActivity().finish();
-                v.getContext().startActivity(iEditFood);
+                Intent iDrink= new Intent(v.getContext(), OrderActivity.class);
+                Bundle bDrink = new Bundle();
+                bDrink.putSerializable("infoFood", menuDrinkList);
+                bDrink.putInt("position", viewHolder.getAdapterPosition());
+                bDrink.putInt("type", 0);
+                iDrink.putExtras(bDrink);
+                v.getContext().startActivity(iDrink);
+                ((Activity)v.getContext()).finish();
             }
         });
     }

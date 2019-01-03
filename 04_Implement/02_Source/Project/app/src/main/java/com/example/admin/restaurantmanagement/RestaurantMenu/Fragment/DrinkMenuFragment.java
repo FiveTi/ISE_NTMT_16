@@ -71,14 +71,4 @@ public class DrinkMenuFragment extends Fragment {
         return view;
     }
 
-    public void showDetail() {
-        Fragment myFragment=new OrderFragment();
-        RestaurantMenuActivity appCompatActivity = (RestaurantMenuActivity) getActivity();
-        appCompatActivity.getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.container, myFragment)
-                .addToBackStack(null)
-                .commit();
-
-    }
 }

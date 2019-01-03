@@ -32,7 +32,7 @@ public class PayFoodActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private ArrayList<PayFoodInfo> payFoodInfoArrayList;
 
-    private int totalPrice = 0;
+    public static int totalPrice = 0;
 
     Button btnPay;
     RecyclerView recyclerView;

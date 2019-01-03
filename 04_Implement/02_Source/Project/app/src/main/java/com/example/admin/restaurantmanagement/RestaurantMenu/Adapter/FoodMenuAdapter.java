@@ -1,5 +1,7 @@
 package com.example.admin.restaurantmanagement.RestaurantMenu.Adapter;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,6 +16,7 @@ import com.example.admin.restaurantmanagement.OrderActivity.OrderActivity;
 import com.example.admin.restaurantmanagement.R;
 import com.example.admin.restaurantmanagement.RestaurantMenu.Fragment.FoodMenuFragment;
 import com.example.admin.restaurantmanagement.RestaurantMenu.MenuInfo;
+import com.example.admin.restaurantmanagement.RestaurantMenu.RestaurantMenuActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -21,9 +24,8 @@ import java.util.List;
 
 public class FoodMenuAdapter extends RecyclerView.Adapter {
     ArrayList<MenuInfo> menuFoodList;
-    Bundle menuBundle;
     public static FoodMenuFragment foodMenuFragment;
-    Integer posFood;
+
     public FoodMenuAdapter(ArrayList<MenuInfo> menuInfos, FoodMenuFragment foodMenuFragment) {
         this.menuFoodList = menuInfos;
         this.foodMenuFragment = foodMenuFragment;
@@ -47,19 +49,17 @@ public class FoodMenuAdapter extends RecyclerView.Adapter {
         myFoodMenuViewHolder.txtMemuPrice.setText(menuInfo.getPrice() + "d");
         Picasso.get().load(menuInfo.getUrl()).into(myFoodMenuViewHolder.imgMenuFood);
 
-//        final Integer posFood = i;
         myFoodMenuViewHolder.imgAddFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //foodMenuFragment.showDetail();
-                Intent iEditFood= new Intent(v.getContext(), OrderActivity.class);
-                Bundle bEditFood = new Bundle();
-                bEditFood.putSerializable("infoFood", menuFoodList);
-                bEditFood.putInt("position", viewHolder.getAdapterPosition());
-                bEditFood.putInt("type", 0);
-                iEditFood.putExtras(bEditFood);
-                //foodManagementFragment.getActivity().finish();
-                v.getContext().startActivity(iEditFood);
+                Intent iFood= new Intent(v.getContext(), OrderActivity.class);
+                Bundle bFood = new Bundle();
+                bFood.putSerializable("infoFood", menuFoodList);
+                bFood.putInt("position", viewHolder.getAdapterPosition());
+                bFood.putInt("type", 0);
+                iFood.putExtras(bFood);
+                v.getContext().startActivity(iFood);
+                ((Activity)v.getContext()).finish();
             }
         });
     }

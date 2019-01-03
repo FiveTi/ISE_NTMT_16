@@ -91,6 +91,8 @@ public class OrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                Intent intent = new Intent(OrderActivity.this, RestaurantMenuActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -104,7 +106,7 @@ public class OrderActivity extends AppCompatActivity {
                         food.get(posFood).getDetail().toString(),
                         food.get(posFood).getUrl().toString(), txtNumOrderFood.getText().toString(), Integer.toString(res));
 
-                mData.child("Table/" + "tb"+Integer.toString(TableDiagramAdapter.pos) + "/ListOder/" + txtOrderFoodName.getText().toString()).setValue(oderFood);
+                mData.child("Table/" + "tb" + Integer.toString(TableDiagramAdapter.pos) + "/ListOder/").push().setValue(oderFood);
 
                 finish();
                 Intent intent = new Intent(OrderActivity.this, RestaurantMenuActivity.class);

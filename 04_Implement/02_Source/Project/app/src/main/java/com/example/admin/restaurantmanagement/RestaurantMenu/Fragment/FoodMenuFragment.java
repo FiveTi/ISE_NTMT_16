@@ -72,20 +72,4 @@ public class FoodMenuFragment extends Fragment {
         return view;
     }
 
-    public void showDetail() {
-        Fragment myFragment=new OrderFragment();
-        RestaurantMenuActivity appCompatActivity = (RestaurantMenuActivity) getActivity();
-        appCompatActivity.getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.container, myFragment)
-                .addToBackStack(null)
-                .commit();
-//        Integer posFood;
-//        Intent intent = new Intent(getActivity(), OrderActivity.class);
-//        Bundle bFood = new Bundle();
-//        bFood.putSerializable(FOOD_MENU, (Serializable) menuInfoList);
-//        bFood.putInt("posFood", posFood);
-//        intent.putExtras(bFood);
-//        startActivity(intent);
-    }
 }
