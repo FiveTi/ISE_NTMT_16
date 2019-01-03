@@ -16,6 +16,7 @@ import com.example.admin.restaurantmanagement.R;
 import com.example.admin.restaurantmanagement.RestaurantMenu.Adapter.FoodMenuAdapter;
 import com.example.admin.restaurantmanagement.RestaurantMenu.MenuInfo;
 import com.example.admin.restaurantmanagement.RestaurantMenu.RestaurantMenuActivity;
+import com.example.admin.restaurantmanagement.TableDiagram.TableDiagramAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -37,7 +38,6 @@ public class OrderActivity extends AppCompatActivity {
     TextView txtOrderFoodName, txtOrderFoodDetail, txtNumOrderFood;
     Button btnOrderFoodPrice;
 
-    public static final int REQUEST_CHOOSE_IMAGE = 1234;
     public static final String FB_STORAGE_FOOD = "Food/";
     public static final String FB_STORAGE_DRINK = "Drink/";
     public static final String FB_DATABASE_FOOD = "Menu/Food";
@@ -104,7 +104,7 @@ public class OrderActivity extends AppCompatActivity {
                         food.get(posFood).getDetail().toString(),
                         food.get(posFood).getUrl().toString(), txtNumOrderFood.getText().toString(), Integer.toString(res));
 
-                mData.child("Table/tb01/ListOder/" + txtOrderFoodName.getText().toString()).setValue(oderFood);
+                mData.child("Table/" + "tb"+Integer.toString(TableDiagramAdapter.pos) + "/ListOder/" + txtOrderFoodName.getText().toString()).setValue(oderFood);
 
                 finish();
                 Intent intent = new Intent(OrderActivity.this, RestaurantMenuActivity.class);

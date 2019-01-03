@@ -2,6 +2,7 @@ package com.example.admin.restaurantmanagement.TableDiagram;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,7 @@ public class TableDiagramAdapter extends BaseAdapter {
     private Context context;
     private List<TableInfo> tableInfoList = new ArrayList<>();
     public ViewHolder viewHolder;
+    public static int pos;
     String tableName[] = {"Bàn 01", "Bàn 02", "Bàn 03", "Bàn 04", "Bàn 05", "Bàn 06", "Bàn 07", "Bàn 08", "Bàn 09", "Bàn 10",
             "Bàn 01", "Bàn 02", "Bàn 03", "Bàn 04", "Bàn 05", "Bàn 06", "Bàn 07", "Bàn 08", "Bàn 09", "Bàn 10"};
     Boolean selected = false;
@@ -50,30 +52,34 @@ public class TableDiagramAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, final ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         final View current = parent.getFocusedChild();
+
+
         if (convertView == null) {
             viewHolder = new ViewHolder();
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.tab_table_diagram, parent, false);
             viewHolder.tableName = (TextView) convertView.findViewById(R.id.txtTableName);
             viewHolder.imgTable = (ImageView) convertView.findViewById(R.id.imgTable);
-            viewHolder.imgSelect =(ImageView) convertView.findViewById(R.id.imgSelect);
+            viewHolder.imgSelect = (ImageView) convertView.findViewById(R.id.imgSelect);
 
             viewHolder.imgSelect.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     PopupMenu popupMenu = new PopupMenu(context, v);
-                    popupMenu.getMenuInflater().inflate(R.menu.menu_table_diagram,popupMenu.getMenu());
+                    popupMenu.getMenuInflater().inflate(R.menu.menu_table_diagram, popupMenu.getMenu());
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem item) {
-                            switch (item.getItemId()){
+                            switch (item.getItemId()) {
                                 case R.id.menuTableSelectFood:
-                                    Intent intentSelectedFood =  new Intent(context, RestaurantMenuActivity.class);
+                                    Intent intentSelectedFood = new Intent(context, RestaurantMenuActivity.class);
+                                    pos = position + 1;
                                     context.startActivity(intentSelectedFood);
                                     break;
                                 case R.id.menuTablePay:
-                                    Intent intentPay =  new Intent(context, PayFoodActivity.class);
+                                    Intent intentPay = new Intent(context, PayFoodActivity.class);
+                                    pos = position + 1;
                                     context.startActivity(intentPay);
                                     break;
                                 case R.id.menuTableCancel:

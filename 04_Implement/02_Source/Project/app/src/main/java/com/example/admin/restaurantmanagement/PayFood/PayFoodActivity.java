@@ -15,7 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.admin.restaurantmanagement.R;
+import com.example.admin.restaurantmanagement.RestaurantMenu.RestaurantMenuActivity;
 import com.example.admin.restaurantmanagement.TableDiagram.TableDiagramActivity;
+import com.example.admin.restaurantmanagement.TableDiagram.TableDiagramAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 
 public class PayFoodActivity extends AppCompatActivity {
     private DatabaseReference mData;
+    private DatabaseReference mData2;
     private ProgressDialog progressDialog;
     private ArrayList<PayFoodInfo> payFoodInfoArrayList;
 
@@ -46,7 +49,9 @@ public class PayFoodActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(PayFoodActivity.this);
         progressDialog.setMessage("Vui lòng chờ giây lát...");
         progressDialog.show();
-        mData = FirebaseDatabase.getInstance().getReference("Table/tb01/ListOder/");
+
+        mData = FirebaseDatabase.getInstance().getReference("Table/" + "tb" + Integer.toString(TableDiagramAdapter.pos) + "/ListOder/");
+        mData2 = FirebaseDatabase.getInstance().getReference("Table/" + "tb" + Integer.toString(TableDiagramAdapter.pos) + "/");
 
         final PayFoodAdapter payFoodAdapter = new PayFoodAdapter(payFoodInfoArrayList);
         recyclerView.setAdapter(payFoodAdapter);
@@ -101,6 +106,7 @@ public class PayFoodActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
 
                 mData.setValue(null);
+                mData2.child("TinhTrang").setValue("Trống");
 
                 Toast.makeText(getApplicationContext(), "Thanh toán thành công", Toast.LENGTH_SHORT).show();
 
