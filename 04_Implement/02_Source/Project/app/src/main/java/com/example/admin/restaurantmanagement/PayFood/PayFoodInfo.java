@@ -1,25 +1,20 @@
 package com.example.admin.restaurantmanagement.PayFood;
 
-public class PayFoodInfo {
-    String foodName, price, count, sum;
+import java.io.Serializable;
+
+public class PayFoodInfo implements Serializable {
     Integer imgFood;
+    String foodName, price, detail, url, count, total;
 
     public PayFoodInfo() {
     }
 
-    public PayFoodInfo(String foodName, String price, String count, Integer imgFood) {
-        this.foodName = foodName;
-        this.price = price;
-        this.count = count;
+    public Integer getImgFood() {
+        return imgFood;
+    }
+
+    public void setImgFood(Integer imgFood) {
         this.imgFood = imgFood;
-    }
-
-    public String getSum() {
-        return sum;
-    }
-
-    public void setSum(String sum) {
-        this.sum = sum;
     }
 
     public String getFoodName() {
@@ -38,6 +33,22 @@ public class PayFoodInfo {
         this.price = price;
     }
 
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     public String getCount() {
         return count;
     }
@@ -46,11 +57,11 @@ public class PayFoodInfo {
         this.count = count;
     }
 
-    public Integer getImgFood() {
-        return imgFood;
+    public String getTotal() {
+        return total;
     }
 
-    public void setImgFood(Integer imgFood) {
-        this.imgFood = imgFood;
+    public void setTotal(String total) {
+        this.total = total;
     }
 }

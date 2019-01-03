@@ -66,6 +66,9 @@ public class OrderActivity extends AppCompatActivity {
         btnOrderFoodPrice.setText(food.get(posFood).getPrice() + "d");
         Picasso.get().load(food.get(posFood).getUrl()).into(imgOrderFoodInfo);
 
+        orderPrice = food.get(posFood).getPrice();
+        res = Integer.parseInt(orderPrice);
+
         mData = FirebaseDatabase.getInstance().getReference();
 
         orderPrice = food.get(posFood).getPrice();
@@ -140,7 +143,7 @@ public class OrderActivity extends AppCompatActivity {
 
     private void minusFood() {
         int temp = Integer.parseInt(txtNumOrderFood.getText().toString());
-        if (temp == 1) return;
+        if (temp <= 1) return;
         else {
             txtNumOrderFood.setText(String.valueOf(temp - 1));
             res = Integer.parseInt(String.valueOf(temp - 1)) * Integer.parseInt(orderPrice);
