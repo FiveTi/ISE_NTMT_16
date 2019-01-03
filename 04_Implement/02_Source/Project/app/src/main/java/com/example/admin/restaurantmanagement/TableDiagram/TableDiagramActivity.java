@@ -6,24 +6,40 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
 
 import com.example.admin.restaurantmanagement.Login.LoginActivity;
 import com.example.admin.restaurantmanagement.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class TableDiagramActivity extends AppCompatActivity {
-    private GridView gvTableDiagram;
+    private RecyclerView rvTableDiagram;
     private FirebaseAuth firebaseAuth;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.table_diagram_activity);
         inItView();
+
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                returnToLogin(TableDiagramActivity.this);
+            }
+        });
+
         firebaseAuth = FirebaseAuth.getInstance();
 
         if(firebaseAuth.getCurrentUser() == null){
@@ -35,13 +51,8 @@ public class TableDiagramActivity extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         TableDiagramAdapter tableDiagramAdapter = new TableDiagramAdapter(this);
-        gvTableDiagram.setAdapter(tableDiagramAdapter);
-        gvTableDiagram.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
+        rvTableDiagram.setAdapter(tableDiagramAdapter);
+        rvTableDiagram.setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));
     }
 
     //quay trở lại màn hình đăng nhập
@@ -96,6 +107,7 @@ public class TableDiagramActivity extends AppCompatActivity {
 
 
     private void inItView() {
-        gvTableDiagram = (GridView) findViewById(R.id.gvTable);
+        rvTableDiagram = (RecyclerView) findViewById(R.id.rvTable);
+        toolbar = (Toolbar) findViewById(R.id.nav_table_diagram);
     }
 }

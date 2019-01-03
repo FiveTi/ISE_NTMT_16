@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginRight="15dp"
-    android:layout_marginBottom="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     android:background="@drawable/bg_table_diagram">
 
     <ImageView
         android:id="@+id/imgTable"
-        android:layout_width="97dp"
-        android:layout_height="98dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/txtTableName"
         app:layout_constraintEnd_toStartOf="@+id/imgSelect"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:layout_constraintVertical_chainStyle="spread_inside"
-        app:srcCompat="@drawable/ic_table" />
+        app:srcCompat="@drawable/ic_table_before" />
 
     <TextView
         android:id="@+id/txtTableName"
@@ -41,7 +41,7 @@
 
     <ImageView
         android:id="@+id/imgSelect"
-        android:layout_width="22dp"
+        android:layout_width="30dp"
         android:layout_height="64dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/txtTableName"
