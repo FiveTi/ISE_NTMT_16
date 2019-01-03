@@ -191,8 +191,6 @@ public class AddEmployManagementActivity extends AppCompatActivity {
                                 while (!urlTask.isSuccessful()) ;
                                 Uri downloadUrl = urlTask.getResult();
 
-
-
                                 //Upload lên database
                                 String uploadId = firebaseDatabaseRef.push().getKey();
                                 EmployManagementInfo employManagementInfo = new EmployManagementInfo(name, phone, email, pass,
@@ -224,35 +222,6 @@ public class AddEmployManagementActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    public void DeleteEmployee(final EmployManagementInfo employee)
-    {
-        final String userEmail = employee.getEmail();
-        String userPassword = employee.getPass();
-
-        //Xóa user khỏi firebaseDatabaseRef
-
-       // firebaseDatabaseRef.child(FB_DATABASE_EMPLOY).child(employee.getEmployName()).setValue(null);
-
-//
-//        //Xóa user khỏi firebaseAuth
-//        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-//        AuthCredential authCredential = EmailAuthProvider.getCredential(userEmail, userPassword);
-//
-//        firebaseUser.reauthenticate(authCredential).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//                firebaseUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                            Toast.makeText(getApplicationContext(), "User account deleted!", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//            }
-//        });
     }
 
     private void inItView() {

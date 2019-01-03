@@ -7,7 +7,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -28,7 +30,12 @@ public class EmployManagementAdapter extends Adapter {
     List<EmployManagementInfo> employManagementInfoList;
     Context context;
 
-    public EmployManagementAdapter(ArrayList<EmployManagementInfo> employManagementInfoList){
+    public EmployManagementAdapter(Context context, ArrayList<EmployManagementInfo> employManagementInfoList){
+        this.employManagementInfoList=employManagementInfoList;
+        this.context = context;
+    }
+
+    public EmployManagementAdapter( ArrayList<EmployManagementInfo> employManagementInfoList){
         this.employManagementInfoList=employManagementInfoList;
     }
 
@@ -42,33 +49,33 @@ public class EmployManagementAdapter extends Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, int i) {
-        View view = viewHolder.itemView;
-        ImageView imgEmploy = view.findViewById(R.id.imgEmploy);
-        TextView txtEmployName = view.findViewById(R.id.txtEmployName);
-        TextView txtEmployPhone = view.findViewById(R.id.txtEmployPhone);
-        ImageView imgDeleteEmploy = view.findViewById(R.id.imgDeleteEmploy);
-        ImageView imgEditEmploy = view.findViewById(R.id.imgEditEmploy);
+        final EmployManagementAdapter.MyEmployViewHolder myEmployViewHolder = (EmployManagementAdapter.MyEmployViewHolder) viewHolder;
 
         EmployManagementInfo employManagementInfo = employManagementInfoList.get(i);
+        myEmployViewHolder.txtEmployName.setText(employManagementInfo.getEmployName());
+        myEmployViewHolder.txtEmployPhone.setText(employManagementInfo.getPhone());
+        Picasso.get().load(employManagementInfo.getUrl()).into(myEmployViewHolder.imgEmploy);
 
-
-        txtEmployName.setText(employManagementInfo.getEmployName());
-        txtEmployPhone.setText(employManagementInfo.getPhone());
-        Picasso.get().load(employManagementInfo.getUrl()).into(imgEmploy);
-
-        imgDeleteEmploy.setOnClickListener(new View.OnClickListener() {
+        myEmployViewHolder.imgDeleteEmploy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DeleteEmployee(v.getContext(), viewHolder.getAdapterPosition());
             }
         });
 
-        imgEditEmploy.setOnClickListener(new View.OnClickListener() {
+        myEmployViewHolder.imgEditEmploy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
+
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull RecyclerView.ViewHolder holder) {
+        holder.itemView.setOnLongClickListener(null);
+        super.onViewRecycled(holder);
     }
 
     @Override
@@ -76,9 +83,17 @@ public class EmployManagementAdapter extends Adapter {
         return employManagementInfoList.size();
     }
 
-    private class MyEmployViewHolder extends RecyclerView.ViewHolder {
+    private class MyEmployViewHolder extends RecyclerView.ViewHolder{
+       ImageView imgEmploy, imgDeleteEmploy, imgEditEmploy;
+       TextView txtEmployName, txtEmployPhone;
+
         public MyEmployViewHolder(View view) {
             super(view);
+            imgEmploy = view.findViewById(R.id.imgEmploy);
+            txtEmployName = view.findViewById(R.id.txtEmployName);
+            txtEmployPhone = view.findViewById(R.id.txtEmployPhone);
+            imgDeleteEmploy = view.findViewById(R.id.imgDeleteEmploy);
+            imgEditEmploy = view.findViewById(R.id.imgEditEmploy);
         }
     }
 
@@ -91,7 +106,11 @@ public class EmployManagementAdapter extends Adapter {
             public void onClick(DialogInterface dialog, int which) {
                 EmployManagement employManagement = new EmployManagement(context);
                 employManagement.DeleteEmployee(employManagementInfoList.get(position));
+                //notifyDataSetChanged();
 
+                Intent intent = new Intent(context, EmployManagementActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                context.startActivity(intent);
 
             }
         });

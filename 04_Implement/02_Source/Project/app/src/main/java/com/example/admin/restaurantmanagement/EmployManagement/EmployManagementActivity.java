@@ -11,9 +11,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.example.admin.restaurantmanagement.R;
 import com.google.firebase.database.DataSnapshot;
@@ -86,7 +89,7 @@ public class EmployManagementActivity extends AppCompatActivity {
     public void DisplayEmployeeOnScreen(){
         employManagementInfoArrayList = GetListEmployee();
 
-        employManagementAdapter  = new EmployManagementAdapter(employManagementInfoArrayList);
+        employManagementAdapter  = new EmployManagementAdapter(this, employManagementInfoArrayList);
         recyclerViewEmploy.setAdapter(employManagementAdapter);
         recyclerViewEmploy.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         employManagementAdapter.notifyDataSetChanged();
@@ -116,4 +119,6 @@ public class EmployManagementActivity extends AppCompatActivity {
 
         return lstEmployee;
     }
+
+
 }
