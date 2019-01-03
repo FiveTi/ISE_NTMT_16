@@ -31,6 +31,8 @@ public class EmployManagementActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private DatabaseReference databaseReference;
     private ArrayList<EmployManagementInfo> employManagementInfoArrayList;
+    private EmployManagementAdapter employManagementAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,28 +56,7 @@ public class EmployManagementActivity extends AppCompatActivity {
         progressDialog.setMessage("Vui lòng chờ giây lát...");
         progressDialog.show();
 
-        final EmployManagementAdapter employManagementAdapter  = new EmployManagementAdapter(employManagementInfoArrayList);
-        recyclerViewEmploy.setAdapter(employManagementAdapter);
-        recyclerViewEmploy.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                progressDialog.dismiss();
-
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    //ImageUpload class require default constructor
-                    EmployManagementInfo employManagementInfo = snapshot.getValue(EmployManagementInfo.class);
-                    employManagementInfoArrayList.add(employManagementInfo);
-                }
-                employManagementAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                progressDialog.dismiss();
-            }
-        });
+        DisplayEmployeeOnScreen();
     }
 
     @Override
@@ -100,5 +81,39 @@ public class EmployManagementActivity extends AppCompatActivity {
     private void inItView() {
         recyclerViewEmploy = (RecyclerView) findViewById(R.id.revEmployManage);
         toolbar = findViewById(R.id.nav_employ_management);
+    }
+
+    public void DisplayEmployeeOnScreen(){
+        employManagementInfoArrayList = GetListEmployee();
+
+        employManagementAdapter  = new EmployManagementAdapter(employManagementInfoArrayList);
+        recyclerViewEmploy.setAdapter(employManagementAdapter);
+        recyclerViewEmploy.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        employManagementAdapter.notifyDataSetChanged();
+    }
+
+    private ArrayList<EmployManagementInfo> GetListEmployee(){
+        final ArrayList<EmployManagementInfo> lstEmployee = new ArrayList<>();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                progressDialog.dismiss();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    //ImageUpload class require default constructor
+                    EmployManagementInfo employManagementInfo = snapshot.getValue(EmployManagementInfo.class);
+                    lstEmployee.add(employManagementInfo);
+                    employManagementAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                progressDialog.dismiss();
+            }
+        });
+
+        return lstEmployee;
     }
 }
