@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/action_search_employ"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="always|collapseActionView"
+        android:title="Tìm kiếm" />
+
+    <item
+        android:id="@+id/action_add_table_management"
+        android:icon="@drawable/ic_add_food_management"
+        app:showAsAction="never"
+        android:title="Thêm bàn ăn" />
+
+</menu>

@@ -1,8 +1,12 @@
 package com.example.admin.restaurantmanagement.TableManagement;
 
+
+
 public class TableManagementInfo {
 
     String tableName;
+
+    public TableManagementInfo(){}
 
     public TableManagementInfo(String tableName) {
 

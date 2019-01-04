@@ -1,14 +1,24 @@
 package com.example.admin.restaurantmanagement.TableManagement;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.support.v7.widget.RecyclerView.Adapter;
+import android.widget.ImageView;
 
+import com.example.admin.restaurantmanagement.FoodManagement.MenuManagementActivity;
 import com.example.admin.restaurantmanagement.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +27,18 @@ public class TableManagementAdapter extends RecyclerView.Adapter {
     List<TableManagementInfo> tableManagementInfoList = new ArrayList<>();
     Context context;
 
-    String tableName[] = {"Nguyen Van A", "Nguyen Van B", "Nguyen Van AB", "Nguyen Van AC", "Nguyen Van Milan", "Nguyen Van MU", "Nguyen Van AQ", "Nguyen Van"};
+//    String tableName[] = {"Nguyen Van A", "Nguyen Van B", "Nguyen Van AB", "Nguyen Van AC", "Nguyen Van Milan", "Nguyen Van MU", "Nguyen Van AQ", "Nguyen Van"};
 
-    public TableManagementAdapter(){
-        for(int i=0;i<tableName.length;i++){
-            TableManagementInfo tableManagementInfo= new TableManagementInfo(tableName[i]);
-            tableManagementInfoList.add(tableManagementInfo);
-        }
+    public TableManagementAdapter(ArrayList<TableManagementInfo> tableManagementInfoList){
+        this.tableManagementInfoList=tableManagementInfoList;
     }
+
+//    public TableManagementAdapter(){
+//        for(int i=0;i<tableName.length;i++){
+//            TableManagementInfo tableManagementInfo= new TableManagementInfo(tableName[i]);
+//            tableManagementInfoList.add(tableManagementInfo);
+//        }
+//    }
 
     @NonNull
     @Override
@@ -40,11 +54,34 @@ public class TableManagementAdapter extends RecyclerView.Adapter {
         TextView txtTableName = (TextView) view.findViewById(R.id.txtTableNameManage);
         TableManagementInfo tableManagementInfo = tableManagementInfoList.get(i);
         txtTableName.setText(tableManagementInfo.getTableName());
+        ImageView imgDeleteTable = view.findViewById(R.id.imgbDeleteTableManage);
+        ImageView imgEditTable = view.findViewById(R.id.imgbEditTableManage);
+
+
+
+        imgDeleteTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//              DeleteTable(v.getContext(), viewHolder.getAdapterPosition());
+            }
+        });
+
+        imgEditTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
+
+//    @Override
+//    public int getItemCount() {
+//        return tableName.length;
+//    }
 
     @Override
     public int getItemCount() {
-        return tableName.length;
+        return tableManagementInfoList.size();
     }
 
     private class MyTableViewHolder extends RecyclerView.ViewHolder {
@@ -52,4 +89,27 @@ public class TableManagementAdapter extends RecyclerView.Adapter {
             super(view);
         }
     }
+//
+//    public AlertDialog.Builder DeleteTable(final Context context, final int position){
+//       AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//       builder.setTitle("XÓA MÓN ĂN");
+//        builder.setMessage("Bạn có chắc muốn xóa \""+ tableManagementInfoList.get(position).getTableName() +"\" không?");
+//       builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+//            @Override
+//           public void onClick(DialogInterface dialog, int which) {
+//                TableManagement tableManagement = new TableManagement(context);
+//                tableManagement.DeleteTable(tableManagementInfoList.get(position));
+//
+//
+//            }
+//        });
+//        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//
+//            }
+//        });
+//        builder.show();
+//        return builder;
+//    }
 }
