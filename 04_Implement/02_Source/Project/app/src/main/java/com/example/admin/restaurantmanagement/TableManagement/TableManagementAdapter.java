@@ -27,18 +27,10 @@ public class TableManagementAdapter extends RecyclerView.Adapter {
     List<TableManagementInfo> tableManagementInfoList = new ArrayList<>();
     Context context;
 
-//    String tableName[] = {"Nguyen Van A", "Nguyen Van B", "Nguyen Van AB", "Nguyen Van AC", "Nguyen Van Milan", "Nguyen Van MU", "Nguyen Van AQ", "Nguyen Van"};
-
     public TableManagementAdapter(ArrayList<TableManagementInfo> tableManagementInfoList){
         this.tableManagementInfoList=tableManagementInfoList;
     }
 
-//    public TableManagementAdapter(){
-//        for(int i=0;i<tableName.length;i++){
-//            TableManagementInfo tableManagementInfo= new TableManagementInfo(tableName[i]);
-//            tableManagementInfoList.add(tableManagementInfo);
-//        }
-//    }
 
     @NonNull
     @Override
@@ -53,7 +45,7 @@ public class TableManagementAdapter extends RecyclerView.Adapter {
         View view = viewHolder.itemView;
         TextView txtTableName = (TextView) view.findViewById(R.id.txtTableNameManage);
         TableManagementInfo tableManagementInfo = tableManagementInfoList.get(i);
-        txtTableName.setText(tableManagementInfo.getTableName());
+        txtTableName.setText("Bàn "+ tableManagementInfo.getTableName());
         ImageView imgDeleteTable = view.findViewById(R.id.imgbDeleteTableManage);
         ImageView imgEditTable = view.findViewById(R.id.imgbEditTableManage);
 
@@ -73,11 +65,6 @@ public class TableManagementAdapter extends RecyclerView.Adapter {
             }
         });
     }
-
-//    @Override
-//    public int getItemCount() {
-//        return tableName.length;
-//    }
 
     @Override
     public int getItemCount() {

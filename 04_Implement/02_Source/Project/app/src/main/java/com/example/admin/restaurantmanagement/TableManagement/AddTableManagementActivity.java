@@ -1,5 +1,6 @@
 package com.example.admin.restaurantmanagement.TableManagement;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,22 +10,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.admin.restaurantmanagement.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class AddTableManagementActivity extends AppCompatActivity {
     private Toolbar toolbar;
-    private EditText  edtTableName;
+    private EditText edtTableName, edtTableStatus;
     private FirebaseAuth firebaseAuth;
-
+    public ArrayList<TableManagementInfo> tableManagementInfoArrayList = new ArrayList<>();
     private DatabaseReference mDatabaseRef;
     public static final String FB_DATABASE_TABLE = "Table";
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,13 +51,13 @@ public class AddTableManagementActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_add_employ_management, menu);
+        getMenuInflater().inflate(R.menu.menu_add_table_management, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_save) {
+        if (item.getItemId() == R.id.action_save_table_management) {
             addTable();
         }
 
@@ -63,30 +65,41 @@ public class AddTableManagementActivity extends AppCompatActivity {
     }
 
 
-
     private void addTable() {
         String name = edtTableName.getText().toString();
+        String stt = edtTableStatus.getText().toString();
 
-        if(name.isEmpty()){
+        if (name.isEmpty()) {
             edtTableName.setError("Bạn cần nhập tên");
             edtTableName.requestFocus();
             return;
         }
 
-                    TableManagementInfo tableManagementInfo = new TableManagementInfo(edtTableName.getText().toString());
+        if (!stt.equals("Trống")) {
+            edtTableStatus.setError("Bàn ăn ban đầu phải trống");
+            edtTableStatus.requestFocus();
+            return;
+        }
 
-                    //Save image info into firebase database
-                    mDatabaseRef.child(edtTableName.getText().toString()).setValue(tableManagementInfo);
+        final ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setTitle("Uploading image");
+        dialog.show();
+        TableManagementInfo tableManagementInfo = new TableManagementInfo(stt, name);
 
-                    //Finish màn hình hiện tại và chuyển về màn hình quản lý món ăn
-                    Intent intent = new Intent(AddTableManagementActivity.this, TableManagementActivity.class);
-                    finish();
-                    startActivity(intent);
-                }
+        //Save image info into firebase database
+        String uploadId = mDatabaseRef.push().getKey();
+        mDatabaseRef.child(uploadId).setValue(tableManagementInfo);
+
+        //Finish màn hình hiện tại và chuyển về màn hình quản lý món ăn
+        Intent intent = new Intent(AddTableManagementActivity.this, TableManagementActivity.class);
+        finish();
+        startActivity(intent);
+    }
 
 
     private void inItView() {
-        toolbar = (Toolbar) findViewById(R.id.nav_add_table_management);        edtTableName = findViewById(R.id.edt_name_table);
-
+        toolbar = (Toolbar) findViewById(R.id.nav_add_table_management);
+        edtTableName = findViewById(R.id.edt_name_table);
+        edtTableStatus = findViewById(R.id.edt_status_table);
     }
 }

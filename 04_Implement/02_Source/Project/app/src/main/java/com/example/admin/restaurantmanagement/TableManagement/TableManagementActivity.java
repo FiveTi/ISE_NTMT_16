@@ -32,7 +32,7 @@ public class TableManagementActivity extends AppCompatActivity {
     private RecyclerView recyclerViewTable;
     private ProgressDialog progressDialog;
     private DatabaseReference databaseReference;
-    private ArrayList<TableManagementInfo> tableManagementInfoArrayList;
+    public ArrayList<TableManagementInfo> tableManagementInfoArrayList;
     private TableManagementAdapter tableManagementAdapter;
 
     @Override
@@ -63,17 +63,14 @@ public class TableManagementActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_add_table_management,menu);
-        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search_employ));
-        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        getMenuInflater().inflate(R.menu.menu_table_management,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id==R.id.action_add_table_management){
+        if(id==R.id.action_add_table){
             Intent intent = new Intent(TableManagementActivity.this, AddTableManagementActivity.class);
             startActivity(intent);
         }

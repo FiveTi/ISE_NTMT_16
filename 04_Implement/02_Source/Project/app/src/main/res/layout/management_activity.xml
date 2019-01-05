@@ -27,18 +27,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:paddingTop="20dp"
             android:background="@drawable/bg_manage"
+            android:paddingTop="20dp"
             android:paddingBottom="20dp"
             android:text="Quản lý nhân viên"
             android:textAllCaps="false"
-            android:textSize="18sp"
             android:textColor="@android:color/white"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/btnManageFood"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
 
         <Button
             android:id="@+id/btnManageFood"
@@ -71,48 +72,29 @@
             android:text="Quản lý bàn ăn"
             android:textAllCaps="false"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnStatistic"
+            app:layout_constraintBottom_toTopOf="@+id/btnLogOut"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnManageFood" />
-
-        <Button
-            android:id="@+id/btnStatistic"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:background="@drawable/bg_manage"
-            android:textColor="@android:color/white"
-            android:text="Thống kê"
-            android:textAllCaps="false"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/btnLogOut"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnManageTable" />
 
         <Button
             android:id="@+id/btnLogOut"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_manage"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
-            android:background="@drawable/bg_manage"
-            android:textColor="@android:color/white"
             android:text="Đăng xuất"
             android:textAllCaps="false"
+            android:textColor="@android:color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnStatistic" />
+            app:layout_constraintTop_toBottomOf="@+id/btnManageTable" />
+
     </android.support.constraint.ConstraintLayout>
 
     <TextView
