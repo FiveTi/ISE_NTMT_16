@@ -203,15 +203,16 @@ public class EditEmployManagementActivity extends AppCompatActivity {
                                 Uri downloadUrl = urlTask.getResult();
 
                                 //Upload lên database
-                                //String uploadId = firebaseDatabaseRef.push().getKey();
                                 EmployManagementInfo employManagementInfo = new EmployManagementInfo(name, phone, email, pass,
                                         downloadUrl.toString(), employID);
 
+                                Delete();
                                 firebaseDatabaseRef.child(employID).setValue(employManagementInfo);
 
                                 Intent intent = new Intent(EditEmployManagementActivity.this, EmployManagementActivity.class);
                                 finish();
                                 EmployManagementAdapter.employManagementActivity.finish();
+                                myMessage();
                                 startActivity(intent);
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -234,14 +235,16 @@ public class EditEmployManagementActivity extends AppCompatActivity {
                                 employs.get(position).getUrl().toString(),
                                 employID);
 
+                        Delete();
                         firebaseDatabaseRef.child(employID).setValue(employManagementInfo);
 
                         Intent intent = new Intent(EditEmployManagementActivity.this, EmployManagementActivity.class);
                         finish();
                         EmployManagementAdapter.employManagementActivity.finish();
+                        myMessage();
                         startActivity(intent);
                     }
-                }
+        }
 
     private void inItView() {
         toolbar = (Toolbar) findViewById(R.id.nav_add_employ_management);
@@ -252,4 +255,16 @@ public class EditEmployManagementActivity extends AppCompatActivity {
         btnChooseImage = findViewById(R.id.btnChooseImageAddFood);
         imgEmploy = findViewById(R.id.imgAddFoodOrder);
     }
+
+    void myMessage()
+    {
+        Toast.makeText(this, "Sửa thông tin nhân viên thành công!", Toast.LENGTH_SHORT).show();
+    }
+
+    void Delete()
+    {
+        EmployManagement employManagement = new EmployManagement(this);
+        employManagement.DeleteEmployee(employs.get(position));
+    }
+
 }

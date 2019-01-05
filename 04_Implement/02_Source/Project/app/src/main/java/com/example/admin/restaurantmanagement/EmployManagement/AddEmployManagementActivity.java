@@ -220,6 +220,10 @@ public class AddEmployManagementActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Vui lòng chọn hình ảnh", Toast.LENGTH_SHORT).show();
                     }
                 }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

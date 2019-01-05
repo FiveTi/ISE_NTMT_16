@@ -58,7 +58,7 @@ public class EmployManagement {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(context, "User account deleted!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Xóa nhân viên thành công", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

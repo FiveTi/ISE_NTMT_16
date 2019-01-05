@@ -193,6 +193,9 @@ public class EditFoodManagementActivity extends AppCompatActivity {
                     mDatabaseRef.child(edtFoodName.getText().toString()).setValue(foodManagementInfo);
                     Intent intent = new Intent(EditFoodManagementActivity.this, MenuManagementActivity.class);
                     finish();
+                    FoodManagementAdapter.foodManagementFragment.getActivity().finish();
+                    DrinkManagementAdapter.drinkManagementFragment.getActivity().finish();
+                    myMessage();
                     startActivity(intent);
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -222,6 +225,7 @@ public class EditFoodManagementActivity extends AppCompatActivity {
             FoodManagementAdapter.foodManagementFragment.getActivity().finish();
             DrinkManagementAdapter.drinkManagementFragment.getActivity().finish();
             Intent intent = new Intent(EditFoodManagementActivity.this, MenuManagementActivity.class);
+            myMessage();
             startActivity(intent);
         }
     }
@@ -241,5 +245,10 @@ public class EditFoodManagementActivity extends AppCompatActivity {
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    void myMessage()
+    {
+        Toast.makeText(this, "Sửa thông tin menu thành công!", Toast.LENGTH_SHORT).show();
     }
 }

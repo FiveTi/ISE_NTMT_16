@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.admin.restaurantmanagement.R;
 import com.google.firebase.database.DatabaseReference;
@@ -106,7 +107,9 @@ public class FoodManagementAdapter extends RecyclerView.Adapter{
                 DatabaseReference myRef = database.getReference(FB_DATABASE_FOOD);
                 myRef.child(menuFoodList.get(position).getFoodName()).setValue(null);
 
+                foodManagementFragment.getActivity().finish();
                 Intent intent = new Intent(context, MenuManagementActivity.class);
+                myMessage();
                 context.startActivity(intent);
             }
         });
@@ -118,5 +121,10 @@ public class FoodManagementAdapter extends RecyclerView.Adapter{
         });
         builder.show();
         return builder;
+    }
+
+    void myMessage()
+    {
+        Toast.makeText(foodManagementFragment.getActivity(), "Xóa món ăn thành công!", Toast.LENGTH_SHORT).show();
     }
 }
