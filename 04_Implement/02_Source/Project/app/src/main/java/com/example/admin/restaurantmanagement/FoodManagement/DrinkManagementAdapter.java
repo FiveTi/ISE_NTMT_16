@@ -48,7 +48,7 @@ public class DrinkManagementAdapter extends RecyclerView.Adapter {
         myDrinkManagementViewHolder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent iEditDrink= new Intent(v.getContext(), EditFoodManagementActivity.class);
+                Intent iEditDrink= new Intent(v.getContext(), EditMenuManagementActivity.class);
                 Bundle bEditDrink = new Bundle();
                 bEditDrink.putSerializable("infoFood", menuFoodList);
                 bEditDrink.putInt("position", viewHolder.getAdapterPosition());

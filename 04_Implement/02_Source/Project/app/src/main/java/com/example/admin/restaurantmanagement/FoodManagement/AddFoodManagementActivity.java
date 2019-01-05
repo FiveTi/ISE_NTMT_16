@@ -121,6 +121,12 @@ public class AddFoodManagementActivity extends AppCompatActivity {
         String price = edtFoodPrice.getText().toString();
         String detail = edtDetail.getText().toString();
 
+        if(checkNameFood(name) == 1){
+            edtFoodName.setError("Tên đã tồn tại");
+            edtFoodName.requestFocus();
+            return;
+        }
+
         if(name.isEmpty()){
             edtFoodName.setError("Bạn cần nhập tên");
             edtFoodName.requestFocus();
@@ -207,5 +213,24 @@ public class AddFoodManagementActivity extends AppCompatActivity {
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+    int checkNameFood(String name)
+    {
+        for(int i = 0; i < FoodManagementFragment.menuFoodList.size(); i++)
+        {
+            if(name.equals(FoodManagementFragment.menuFoodList.get(i).getFoodName()))
+            {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent intent = new Intent(AddFoodManagementActivity.this, MenuManagementActivity.class);
+        startActivity(intent);
     }
 }

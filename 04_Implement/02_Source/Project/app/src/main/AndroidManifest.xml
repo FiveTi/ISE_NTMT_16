@@ -16,16 +16,15 @@
 
         <activity android:name=".FoodManagement.AddFoodManagementActivity"></activity>
         <activity android:name=".FoodManagement.AddDrinkManagementActivity"></activity>
-        <activity android:name=".FoodManagement.EditFoodManagementActivity"></activity>
+        <activity android:name=".FoodManagement.EditMenuManagementActivity"></activity>
         <activity android:name=".FoodManagement.MenuManagementActivity"></activity>
-
         <activity android:name=".EmployManagement.EmployManagementActivity"></activity>
         <activity android:name=".EmployManagement.AddEmployManagementActivity"></activity>
         <activity android:name=".EmployManagement.EditEmployManagementActivity"></activity>
 
-        <activity android:name=".TableManagement.AddTableManagementActivity"></activity>
         <activity android:name=".TableManagement.TableManagementActivity"></activity>
-
+        <activity android:name=".TableManagement.AddTableManagementActivity"></activity>
+        <activity android:name=".TableManagement.EditTableManagementActivity"></activity>
         <activity android:name=".Management.ManagementActivity"></activity>
 
         <activity android:name=".Login.LoginActivity"></activity>

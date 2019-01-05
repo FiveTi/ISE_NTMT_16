@@ -111,6 +111,6 @@ public class ManagementActivity extends AppCompatActivity {
         btnManageEmploy = findViewById(R.id.btnManageEmploy);
         btnManageFood = findViewById(R.id.btnManageFood);
         btnManageTable = findViewById(R.id.btnManageTable);
-        btnStatistic = findViewById(R.id.btnLogOut);
+        btnStatistic = findViewById(R.id.btnStatistic);
     }
 }

@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.admin.restaurantmanagement.FoodManagement.AddDrinkManagementActivity;
+import com.example.admin.restaurantmanagement.FoodManagement.MenuManagementActivity;
 import com.example.admin.restaurantmanagement.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -69,6 +71,12 @@ public class AddTableManagementActivity extends AppCompatActivity {
         String name = edtTableName.getText().toString();
         String stt = edtTableStatus.getText().toString();
 
+        if (checkNameTable(name) == 1) {
+            edtTableName.setError("Tên bàn ăn đã tồn tại");
+            edtTableName.requestFocus();
+            return;
+        }
+
         if (name.isEmpty()) {
             edtTableName.setError("Bạn cần nhập tên");
             edtTableName.requestFocus();
@@ -87,8 +95,8 @@ public class AddTableManagementActivity extends AppCompatActivity {
         TableManagementInfo tableManagementInfo = new TableManagementInfo(stt, name);
 
         //Save image info into firebase database
-        String uploadId = mDatabaseRef.push().getKey();
-        mDatabaseRef.child(uploadId).setValue(tableManagementInfo);
+        //String uploadId = mDatabaseRef.push().getKey();
+        mDatabaseRef.child(name).setValue(tableManagementInfo);
 
         //Finish màn hình hiện tại và chuyển về màn hình quản lý món ăn
         Intent intent = new Intent(AddTableManagementActivity.this, TableManagementActivity.class);
@@ -101,5 +109,25 @@ public class AddTableManagementActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.nav_add_table_management);
         edtTableName = findViewById(R.id.edt_name_table);
         edtTableStatus = findViewById(R.id.edt_status_table);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent intent = new Intent(AddTableManagementActivity.this, TableManagementActivity.class);
+        startActivity(intent);
+    }
+
+    int checkNameTable(String name)
+    {
+        for(int i = 0; i < TableManagementActivity.tableManagementInfoArrayList.size(); i++)
+        {
+            if(name.equals(TableManagementActivity.tableManagementInfoArrayList.get(i).getTableName()))
+            {
+                return 1;
+            }
+        }
+        return 0;
     }
 }

@@ -59,12 +59,10 @@ public class LoginActivity extends AppCompatActivity {
     private void logIn() {
         String email = edtEmail.getText().toString();
         String pass = edtPass.getText().toString();
-
-        if (email.equals("admin@gmail.com") && pass.equals("admin")) {
+        if (email.equals(pass) && email.equals("1")) {
             startActivity(new Intent(LoginActivity.this, ManagementActivity.class));
             return;
         }
-
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             edtEmail.setError("Sai định dạng email");
             edtEmail.requestFocus();

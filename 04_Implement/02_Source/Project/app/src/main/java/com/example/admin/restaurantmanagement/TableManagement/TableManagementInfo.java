@@ -1,8 +1,9 @@
 package com.example.admin.restaurantmanagement.TableManagement;
 
 
+import java.io.Serializable;
 
-public class TableManagementInfo {
+public class TableManagementInfo implements Serializable {
     String status;
     String tableName;
 

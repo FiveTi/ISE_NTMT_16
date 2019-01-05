@@ -37,7 +37,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class EditFoodManagementActivity extends AppCompatActivity {
+public class EditMenuManagementActivity extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
 
@@ -146,6 +146,12 @@ public class EditFoodManagementActivity extends AppCompatActivity {
         String price = edtFoodPrice.getText().toString();
         String detail = edtDetail.getText().toString();
 
+        if(checkNameFood(name) == 1){
+            edtFoodName.setError("Tên đã tồn tại");
+            edtFoodName.requestFocus();
+            return;
+        }
+
         if(name.isEmpty()){
             edtFoodName.setError("Bạn cần nhập tên");
             edtFoodName.requestFocus();
@@ -191,7 +197,7 @@ public class EditFoodManagementActivity extends AppCompatActivity {
                     //Save image info into firebase database
                     mDatabaseRef.child(key).setValue(null);
                     mDatabaseRef.child(edtFoodName.getText().toString()).setValue(foodManagementInfo);
-                    Intent intent = new Intent(EditFoodManagementActivity.this, MenuManagementActivity.class);
+                    Intent intent = new Intent(EditMenuManagementActivity.this, MenuManagementActivity.class);
                     finish();
                     FoodManagementAdapter.foodManagementFragment.getActivity().finish();
                     DrinkManagementAdapter.drinkManagementFragment.getActivity().finish();
@@ -224,7 +230,7 @@ public class EditFoodManagementActivity extends AppCompatActivity {
             finish();
             FoodManagementAdapter.foodManagementFragment.getActivity().finish();
             DrinkManagementAdapter.drinkManagementFragment.getActivity().finish();
-            Intent intent = new Intent(EditFoodManagementActivity.this, MenuManagementActivity.class);
+            Intent intent = new Intent(EditMenuManagementActivity.this, MenuManagementActivity.class);
             myMessage();
             startActivity(intent);
         }
@@ -250,5 +256,17 @@ public class EditFoodManagementActivity extends AppCompatActivity {
     void myMessage()
     {
         Toast.makeText(this, "Sửa thông tin menu thành công!", Toast.LENGTH_SHORT).show();
+    }
+
+    int checkNameFood(String name)
+    {
+        for(int i = 0; i < food.size(); i++)
+        {
+            if(name.equals(food.get(i).getFoodName()) && i != position)
+            {
+                return 1;
+            }
+        }
+        return 0;
     }
 }

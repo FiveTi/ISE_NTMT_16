@@ -160,4 +160,11 @@ public class OrderActivity extends AppCompatActivity {
         btnOrderFoodPrice.setText("+ " + String.valueOf(res) + "d");
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent intent = new Intent(OrderActivity.this, RestaurantMenuActivity.class);
+        startActivity(intent);
+    }
 }

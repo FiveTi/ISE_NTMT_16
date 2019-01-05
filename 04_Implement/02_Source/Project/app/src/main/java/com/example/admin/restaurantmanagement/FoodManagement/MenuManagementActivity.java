@@ -78,10 +78,12 @@ public class MenuManagementActivity extends AppCompatActivity {
         Intent intent;
         if (item.getItemId() == R.id.action_add_food_management) {
             intent = new Intent(MenuManagementActivity.this, AddFoodManagementActivity.class);
+            finish();
             startActivity(intent);
         }
         if (item.getItemId() == R.id.action_add_drink_management) {
             intent = new Intent(MenuManagementActivity.this, AddDrinkManagementActivity.class);
+            finish();
             startActivity(intent);
         }
         return true;

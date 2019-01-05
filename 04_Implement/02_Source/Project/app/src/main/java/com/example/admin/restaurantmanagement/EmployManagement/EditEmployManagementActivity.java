@@ -21,17 +21,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.admin.restaurantmanagement.FoodManagement.DrinkManagementAdapter;
-import com.example.admin.restaurantmanagement.FoodManagement.EditFoodManagementActivity;
-import com.example.admin.restaurantmanagement.FoodManagement.FoodManagementAdapter;
-import com.example.admin.restaurantmanagement.FoodManagement.MenuManagementActivity;
-import com.example.admin.restaurantmanagement.FoodManagement.MenuManagementInfo;
 import com.example.admin.restaurantmanagement.R;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

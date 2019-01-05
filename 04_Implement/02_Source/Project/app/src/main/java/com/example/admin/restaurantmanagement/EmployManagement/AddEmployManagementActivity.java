@@ -22,6 +22,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.admin.restaurantmanagement.FoodManagement.AddDrinkManagementActivity;
+import com.example.admin.restaurantmanagement.FoodManagement.MenuManagementActivity;
 import com.example.admin.restaurantmanagement.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -236,5 +238,13 @@ public class AddEmployManagementActivity extends AppCompatActivity {
         edtName = findViewById(R.id.edt_name_employ);
         btnChooseImage = findViewById(R.id.btnChooseImageAddFood);
         imgEmploy = findViewById(R.id.imgAddFoodOrder);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent intent = new Intent(AddEmployManagementActivity.this, EmployManagementActivity.class);
+        startActivity(intent);
     }
 }

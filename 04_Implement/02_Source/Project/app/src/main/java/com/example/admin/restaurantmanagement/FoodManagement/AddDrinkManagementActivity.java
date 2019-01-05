@@ -117,23 +117,32 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
     }
 
     private void uploadDrink() {
-        String name = edtDrinkName.getText().toString();
+        final String name = edtDrinkName.getText().toString();
         String price = edtDrinkPrice.getText().toString();
         String detail = edtDetail.getText().toString();
+
+        if(checkNameDrink(name) == 1){
+            edtDrinkName.setError("Tên đã tồn tại");
+            edtDrinkName.requestFocus();
+            return;
+        }
 
         if(name.isEmpty()){
             edtDrinkName.setError("Bạn cần nhập tên");
             edtDrinkName.requestFocus();
+            return;
         }
 
         if(price.isEmpty()){
             edtDrinkPrice.setError("Bạn cần nhập giá");
             edtDrinkPrice.requestFocus();
+            return;
         }
 
         if(detail.isEmpty()){
             edtDetail.setError("Bạn cần nhập mô tả");
             edtDetail.requestFocus();
+            return;
         }
 
         if (imgUri != null) {
@@ -161,8 +170,7 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
                             downloadUrl.toString());
 
                     //Save image info into firebase database
-                    String uploadId = mDatabaseRef.push().getKey();
-                    mDatabaseRef.child(uploadId).setValue(foodManagementInfo);
+                    mDatabaseRef.child(name).setValue(foodManagementInfo);
                     Intent intent = new Intent(AddDrinkManagementActivity.this, MenuManagementActivity.class);
                     finish();
                     startActivity(intent);
@@ -202,5 +210,25 @@ public class AddDrinkManagementActivity extends AppCompatActivity {
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    int checkNameDrink(String name)
+    {
+        for(int i = 0; i < DrinkManagementFragment.menuFoodList.size(); i++)
+        {
+            if(name.equals(DrinkManagementFragment.menuFoodList.get(i).getFoodName()))
+            {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        Intent intent = new Intent(AddDrinkManagementActivity.this, MenuManagementActivity.class);
+        startActivity(intent);
     }
 }

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class DrinkManagementFragment extends Fragment {
     public String FB_DATABASE_FOOD = "Menu/Drink";
-    private ArrayList<MenuManagementInfo> menuFoodList = new ArrayList<>();
+    public static ArrayList<MenuManagementInfo> menuFoodList = new ArrayList<>();
     RecyclerView revFoodManagement;
     private DatabaseReference mDatabaseRef;
     private ProgressDialog progressDialog;
@@ -38,6 +38,7 @@ public class DrinkManagementFragment extends Fragment {
         progressDialog.show();
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(FB_DATABASE_FOOD);
+        menuFoodList.clear();
 
         final DrinkManagementAdapter drinkManagementAdapter = new DrinkManagementAdapter(menuFoodList, this);
         revFoodManagement.setAdapter(drinkManagementAdapter);

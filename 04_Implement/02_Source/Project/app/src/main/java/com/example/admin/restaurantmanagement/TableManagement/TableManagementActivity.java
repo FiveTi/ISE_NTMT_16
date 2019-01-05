@@ -32,7 +32,7 @@ public class TableManagementActivity extends AppCompatActivity {
     private RecyclerView recyclerViewTable;
     private ProgressDialog progressDialog;
     private DatabaseReference databaseReference;
-    public ArrayList<TableManagementInfo> tableManagementInfoArrayList;
+    public static ArrayList<TableManagementInfo> tableManagementInfoArrayList;
     private TableManagementAdapter tableManagementAdapter;
 
     @Override
@@ -41,6 +41,7 @@ public class TableManagementActivity extends AppCompatActivity {
         setContentView(R.layout.management_table_activity);
         inItView();
         tableManagementInfoArrayList = new ArrayList<>();
+        tableManagementInfoArrayList.clear();
 
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar());
@@ -72,6 +73,7 @@ public class TableManagementActivity extends AppCompatActivity {
         int id = item.getItemId();
         if(id==R.id.action_add_table){
             Intent intent = new Intent(TableManagementActivity.this, AddTableManagementActivity.class);
+            finish();
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
@@ -85,7 +87,7 @@ public class TableManagementActivity extends AppCompatActivity {
     public void DisplayTableOnScreen(){
         tableManagementInfoArrayList = GetListTable();
 
-        tableManagementAdapter  = new TableManagementAdapter(tableManagementInfoArrayList);
+        tableManagementAdapter  = new TableManagementAdapter(tableManagementInfoArrayList, this);
         recyclerViewTable.setAdapter(tableManagementAdapter);
         recyclerViewTable.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         tableManagementAdapter.notifyDataSetChanged();

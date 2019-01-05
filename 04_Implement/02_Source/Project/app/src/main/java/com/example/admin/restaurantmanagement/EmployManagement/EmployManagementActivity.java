@@ -76,6 +76,7 @@ public class EmployManagementActivity extends AppCompatActivity {
         int id = item.getItemId();
         if(id==R.id.action_add_employ_management){
             Intent intent = new Intent(EmployManagementActivity.this, AddEmployManagementActivity.class);
+            finish();
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
