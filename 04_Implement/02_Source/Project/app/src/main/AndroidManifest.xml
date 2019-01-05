@@ -20,6 +20,7 @@
         <activity android:name=".FoodManagement.MenuManagementActivity"></activity>
         <activity android:name=".EmployManagement.EmployManagementActivity"></activity>
         <activity android:name=".EmployManagement.AddEmployManagementActivity"></activity>
+        <activity android:name=".EmployManagement.EditEmployManagementActivity"></activity>
 
         <activity android:name=".TableManagement.TableManagementActivity"></activity>
         <activity android:name=".Management.ManagementActivity"></activity>

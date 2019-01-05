@@ -1,8 +1,10 @@
 package com.example.admin.restaurantmanagement.EmployManagement;
 
-public class EmployManagementInfo {
+import java.io.Serializable;
+
+public class EmployManagementInfo implements Serializable {
     Integer imgEmploy;
-    String employName, phone, email, pass;
+    String employName, phone, email, pass, keyID;
     String url;
 
     public String getKeyID() {
@@ -12,8 +14,6 @@ public class EmployManagementInfo {
     public void setKeyID(String keyID) {
         this.keyID = keyID;
     }
-
-    String keyID;
 
     public EmployManagementInfo(){}
 

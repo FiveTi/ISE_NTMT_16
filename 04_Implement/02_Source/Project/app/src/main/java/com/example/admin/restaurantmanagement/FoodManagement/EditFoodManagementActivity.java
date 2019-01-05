@@ -189,7 +189,8 @@ public class EditFoodManagementActivity extends AppCompatActivity {
                             downloadUrl.toString());
 
                     //Save image info into firebase database
-                    mDatabaseRef.child(key).setValue(foodManagementInfo);
+                    mDatabaseRef.child(key).setValue(null);
+                    mDatabaseRef.child(edtFoodName.getText().toString()).setValue(foodManagementInfo);
                     Intent intent = new Intent(EditFoodManagementActivity.this, MenuManagementActivity.class);
                     finish();
                     startActivity(intent);

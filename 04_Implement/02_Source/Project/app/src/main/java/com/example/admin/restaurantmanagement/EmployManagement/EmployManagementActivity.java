@@ -89,7 +89,7 @@ public class EmployManagementActivity extends AppCompatActivity {
     public void DisplayEmployeeOnScreen(){
         employManagementInfoArrayList = GetListEmployee();
 
-        employManagementAdapter  = new EmployManagementAdapter(this, employManagementInfoArrayList);
+        employManagementAdapter  = new EmployManagementAdapter(this, employManagementInfoArrayList, this);
         recyclerViewEmploy.setAdapter(employManagementAdapter);
         recyclerViewEmploy.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         employManagementAdapter.notifyDataSetChanged();

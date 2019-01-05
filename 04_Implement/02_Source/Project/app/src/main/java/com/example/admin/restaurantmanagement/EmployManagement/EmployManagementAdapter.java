@@ -3,6 +3,7 @@ package com.example.admin.restaurantmanagement.EmployManagement;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.admin.restaurantmanagement.FoodManagement.EditFoodManagementActivity;
 import com.example.admin.restaurantmanagement.FoodManagement.MenuManagementActivity;
 import com.example.admin.restaurantmanagement.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,12 +29,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployManagementAdapter extends Adapter {
-    List<EmployManagementInfo> employManagementInfoList;
+    public static EmployManagementActivity employManagementActivity;
+    ArrayList<EmployManagementInfo> employManagementInfoList;
     Context context;
 
-    public EmployManagementAdapter(Context context, ArrayList<EmployManagementInfo> employManagementInfoList){
-        this.employManagementInfoList=employManagementInfoList;
+    public EmployManagementAdapter(Context context, ArrayList<EmployManagementInfo> employManagementInfoList, EmployManagementActivity employManagementActivity){
+        this.employManagementInfoList = employManagementInfoList;
         this.context = context;
+        this.employManagementActivity = employManagementActivity;
     }
 
     public EmployManagementAdapter( ArrayList<EmployManagementInfo> employManagementInfoList){
@@ -51,11 +55,6 @@ public class EmployManagementAdapter extends Adapter {
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder viewHolder, int i) {
         final EmployManagementAdapter.MyEmployViewHolder myEmployViewHolder = (EmployManagementAdapter.MyEmployViewHolder) viewHolder;
 
-        EmployManagementInfo employManagementInfo = employManagementInfoList.get(i);
-        myEmployViewHolder.txtEmployName.setText(employManagementInfo.getEmployName());
-        myEmployViewHolder.txtEmployPhone.setText(employManagementInfo.getPhone());
-        Picasso.get().load(employManagementInfo.getUrl()).into(myEmployViewHolder.imgEmploy);
-
         myEmployViewHolder.imgDeleteEmploy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,10 +65,20 @@ public class EmployManagementAdapter extends Adapter {
         myEmployViewHolder.imgEditEmploy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent iEditEmploy = new Intent(v.getContext(), EditEmployManagementActivity.class);
+                Bundle bEditEmploy = new Bundle();
+                bEditEmploy.putSerializable("infoEmploy", employManagementInfoList);
+                bEditEmploy.putInt("position", viewHolder.getAdapterPosition());
+                iEditEmploy.putExtras(bEditEmploy);
+                v.getContext().startActivity(iEditEmploy);
 
             }
         });
 
+        EmployManagementInfo employManagementInfo = employManagementInfoList.get(i);
+        myEmployViewHolder.txtEmployName.setText(employManagementInfo.getEmployName());
+        myEmployViewHolder.txtEmployPhone.setText(employManagementInfo.getPhone());
+        Picasso.get().load(employManagementInfo.getUrl()).into(myEmployViewHolder.imgEmploy);
     }
 
     @Override
