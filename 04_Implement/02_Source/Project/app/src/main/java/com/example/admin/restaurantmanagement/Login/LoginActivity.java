@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
     private void logIn() {
         String email = edtEmail.getText().toString();
         String pass = edtPass.getText().toString();
-        if (email.equals(pass) && email.equals("1")) {
+        if (email.equals("admin@gmail.com") && pass.equals("admin")) {
             startActivity(new Intent(LoginActivity.this, ManagementActivity.class));
             return;
         }

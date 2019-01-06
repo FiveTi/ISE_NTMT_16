@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:layout_constraintVertical_chainStyle="spread_inside"
-        app:srcCompat="@drawable/ic_table_before" />
+        app:srcCompat="@drawable/ic_table" />
 
     <TextView
         android:id="@+id/txtTableName"
