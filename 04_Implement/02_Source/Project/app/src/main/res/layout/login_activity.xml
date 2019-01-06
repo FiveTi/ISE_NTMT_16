@@ -32,7 +32,7 @@
             android:drawableLeft="@drawable/ic_user"
             android:drawablePadding="@dimen/drawable_padding"
             android:hint="Tài khoản: "
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:paddingLeft="15dp"
             android:textColor="#663519"
             android:textColorHint="@color/colorHint"
